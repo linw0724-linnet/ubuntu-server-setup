@@ -1,9 +1,14 @@
+# Introduction
 > [!NOTE]
-> This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server
+> This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server on your host machine
 
 > [!NOTE]
 > Skip any steps that have already been completed
+
+This instruction set will set up a Plex Server that has its media stored on a NAS and shared via SMB on the same network
+
 -----
+# Instructions
 * [Fix 'A start job is running, wait for network to be configured' on bootup](fix_network-bootup.md)
 
 * [Enable Ubuntu firewall](enable_firewall.md)
@@ -40,7 +45,7 @@ sudo nano /etc/fstab
 > Replace `<NAS-directory>` with the appropriate path of the SMB share on your NAS
 
 > [!IMPORTANT]
-> For the `<NAS-directory>` path to work correctly, your root directory should be suffixed with `.local`
+> For the `<NAS-directory>` path to work correctly, your root directory should be suffixed with `.local`. For example, your NAS directory will look like `NAS-name.local/plexmedia`
 
 > [!IMPORTANT]
 > For the Plex Server host machine to properly access the NAS directory, ensure that permissions are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
@@ -173,4 +178,7 @@ crontab -e
 ```
 * Save file and exit text editor
 -----
-**Plex Server is now set up in a Docker container. Go to the web UI for plex via a web browser under `https://app.plex.tv/desktop/` to finish setting up your Plex Server**
+#Conclusion
+Plex Server is now set up in a Docker container on your host machine
+
+Go to the web UI for plex via a web browser under `https://app.plex.tv/desktop/` to finish setting up your Plex Server
