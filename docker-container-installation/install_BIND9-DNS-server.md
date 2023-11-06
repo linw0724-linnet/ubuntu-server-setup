@@ -1,6 +1,5 @@
 > [!WARNING]
 > This instruction set is still under development and untested, please make any contributions and edits to help finalize this instruction set
-
 # Introduction
 > [!NOTE]
 > This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server on your host machine
@@ -16,7 +15,6 @@ After forwarding a DNS request to an authoritative DNS server, the server will c
 
 -----
 # Instructions
-
 * [Fix 'A start job is running, wait for network to be configured' on bootup](fix_network-bootup.md)
 
 * [Enable Ubuntu firewall](enable_firewall.md)
