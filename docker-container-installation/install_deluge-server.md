@@ -9,7 +9,6 @@ This instruction set will set up a Deluge Server inside a Docker container that 
 
 -----
 # Instructions
-
 * [Fix 'A start job is running, wait for network to be configured' on bootup](fix_network-bootup.md)
 
 * [Enable Ubuntu firewall](enable_firewall.md)
