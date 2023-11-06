@@ -5,7 +5,7 @@
 > [!NOTE]
 > Skip any steps that have already been completed
 
-This instruction set will set up a Plex Server that has its media stored on a NAS and shared via SMB on the same network on your host machine
+This instruction set will set up a Plex Server inside a Docker container that has its media stored on a NAS and shared via SMB on the same network on your host machine
 
 -----
 # Instructions
