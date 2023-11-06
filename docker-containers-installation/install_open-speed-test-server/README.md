@@ -9,11 +9,11 @@ This instruction set will set up an Open Speed Test Server inside a Docker conta
 
 -----
 # Instructions
-* [Fix 'A start job is running, wait for network to be configured' on bootup](../fix_network-bootup.md)
+* [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/README.md)
 
-* [Enable Ubuntu firewall](../enable_firewall.md)
+* [Enable Ubuntu firewall](/enable_firewall/README.md)
 
-* [Install SSH Server](../install_ssh-server.md)
+* [Install SSH Server](/install_ssh-server/README.md)
 
 * Connect via PuTTY
 
@@ -22,9 +22,9 @@ This instruction set will set up an Open Speed Test Server inside a Docker conta
 sudo ufw allow 3000/tcp
 sudo ufw allow 3001/udp
 ```
-* [Install Nano and update packages](../install_nano.md)
+* [Install Nano and update packages](/install_nano/README.md)
 
-* [Install Docker](../install_docker.md)
+* [Install Docker](/install_docker/README.md)
 
 * Create directories for Open Speed Test Server
 ```

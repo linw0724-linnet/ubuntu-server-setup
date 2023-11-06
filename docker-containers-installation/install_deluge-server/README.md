@@ -9,11 +9,11 @@ This instruction set will set up a Deluge Server inside a Docker container that 
 
 -----
 # Instructions
-* [Fix 'A start job is running, wait for network to be configured' on bootup](../fix_network-bootup.md)
+* [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/README.md)
 
-* [Enable Ubuntu firewall](../enable_firewall.md)
+* [Enable Ubuntu firewall](/enable_firewall/README.md)
 
-* [Install SSH Server](../install_ssh-server.md)
+* [Install SSH Server](/install_ssh-server/README.md)
 
 * Connect via PuTTY
 
@@ -26,20 +26,20 @@ sudo ufw allow 8113
 sudo ufw allow 58846
 sudo ufw allow 58847
 ```
-* [Install Nano and update packages](../install_nano.md)
+* [Install Nano and update packages](/install_nano/README.md)
 
-* [Install Docker](../install_docker.md)
+* [Install Docker](/install_docker/README.md)
 
 * Create directories for Deluge Server
 ```
 sudo mkdir -p /nas/delugeserverdownloads
 sudo mkdir -p /opt/delugeserver/config
 ```
-* [Install Avahi](../install_avahi.md)
+* [Install Avahi](/install_avahi/README.md)
 
-* [Install CIFS](../install_cifs.md)
+* [Install CIFS](/install_cifs/README.md)
 
-* [Create CIFS credentials file](../create_cifs-credentials-file.md)
+* [Create CIFS credentials file](/create_cifs-credentials-file/README.md)
   
 * Set up CIFS shares to mount at boot up
 ```
