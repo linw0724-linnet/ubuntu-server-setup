@@ -5,7 +5,7 @@
 > [!NOTE]
 > Skip any steps that have already been completed
 
-This instruction set will set up Open Speed Test Server on your host machine and allow for speed tests over your local network
+This instruction set will set up an Open Speed Test Server inside a Docker container on your host machine and allow for speed tests over your local network
 
 -----
 # Instructions
