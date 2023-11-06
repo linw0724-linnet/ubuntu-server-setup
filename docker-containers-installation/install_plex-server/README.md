@@ -95,6 +95,10 @@ cd
 sudo nano /opt/plexserver/docker-compose.yml
 ```
 * Enter configuration for Plex Docker container into compose file
+> [!IMPORTANT]
+> Go to `https://www.plex.tv/claim` on a web browser to get your claim code, then replace `<insert_your_claim_token>` with the code from Plex.tv in the compose file
+>
+> This will register your new server with your Plex account and allow access from `https://app.plex.tv/` in a web browser instead of using an IP address
 ```
 version: "3.9"
 services:
