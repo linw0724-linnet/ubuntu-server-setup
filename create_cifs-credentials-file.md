@@ -1,4 +1,4 @@
-* Create CIFS credentials file
+* While in root, create CIFS credentials file
 ```
 sudo nano <directory>/.<credentialsfilename>
 ```
@@ -11,3 +11,5 @@ password=<password>
 ```
 sudo chmod 600 <directory>/.<credentialsfilename>
 ```
+-----
+**Your CIFS credentials file is now created and given the proper permissions for usage**
