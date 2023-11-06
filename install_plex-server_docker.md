@@ -1,36 +1,59 @@
-* Skip any steps that have already been completed<br>
-* Fix 'A start job is running, wait for network to be configured' on bootup<br>
-* [Enable Ubuntu firewall](enable_firewall.md)<br>
-* [Install SSH Server](install_ssh-server.md)<br>
-* Connect via PuTTY<br>
-* Set up Ubuntu firewall for Plex Server<br>
+> [!NOTE]
+> This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server<br>
+
+> [!NOTE]
+> Skip any steps that have already been completed<br>
+-----
+* [Fix 'A start job is running, wait for network to be configured' on bootup](fix_network-bootup.md)
+
+* [Enable Ubuntu firewall](enable_firewall.md)
+
+* [Install SSH Server](install_ssh-server.md)
+
+* Connect via PuTTY
+
+* Set up Ubuntu firewall for Plex Server
 ```
 sudo ufw allow 32400/tcp
 ```
-* Install Nano and update packages<br>
-* Install Docker<br>
-* Create directories for Plex Server<br>
+* [Install Nano and update packages](install_nano.md)
+
+* [Install Docker](install_docker.md)
+
+* Create directories for Plex Server
 ```
 sudo mkdir -p /nas/{database,plexserverphysicalmedia,plexservertempmedia}
 sudo mkdir -p /opt/plexserver/config
 ```
-* Install Avahi<br>
-* Install CIFS<br>
-* Create CIFS credentials file<br>
+* [Install Avahi](install_avahi.md)
+
+* [Install CIFS](install_cifs.md)
+
+* [Create CIFS credentials file](create_cifs-credentials-file.md)
+
 * Set up CIFS shares to mount at boot up<br>
 ```
 sudo nano /etc/fstab
 ```
 * Add the following CIFS entries to the fstab file
+> [!NOTE]
+> Replace `<NAS-directory>` with the appropriate path of the SMB share on your NAS
+
+> [!IMPORTANT]
+> For the `<NAS-directory>` path to work correctly, your root directory should be suffixed with `.local`
+
+> [!IMPORTANT]
+> For the Plex Server host machine to properly access the NAS directory, ensure that permissions are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
 ```
 # Connect Plex Database CIFS share to local Plex Server database directory
-//<NAS-name>.local/<nas-database-directory> /nas/plexserverdatabase cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+//<NAS-directory> /nas/plexserverdatabase cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex Physical Media CIFS share to local Plex Server media directory
-//<NAS-name>.local/<nas-physical-media-directory> /nas/plexserverphysicalmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+//<NAS-directory> /nas/plexserverphysicalmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex Temp Media CIFS share to local Plex Server media directory
-//<NAS-name>.local/<nas-temp-media-directory> /nas/plexservertempmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+//<NAS-directory> /nas/plexservertempmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 ```
-* Save file and exit text editor<br>
+* Save file and exit text editor
+
 * Mount CIFS shares
 ```
 sudo mount -a
@@ -93,7 +116,8 @@ services:
       # Path to local Plex Server temp media directory
       - /nas/plexservertempmedia:/tempmedia
 ```
-* Save file and exit text editor<br>
+* Save file and exit text editor
+
 * Test Plex Docker container
 ```
 sudo docker-compose -f /opt/plexserver/docker-compose.yml config
@@ -124,7 +148,8 @@ if [[ mountpoint -q /nas/plexserverdatabase || mountpoint -q /nas/plexserverphys
     sudo mount -a; sudo docker restart plexserver
 fi
 ```
-* Save file and exit text editor<br>
+* Save file and exit text editor
+
 * Give Plex Server Database CIFS Check Script execute permissions
 ```
 sudo chmod 555 /opt/plexserver/plexserver_cifs_check.sh
@@ -147,4 +172,5 @@ crontab -e
 0 5 * * * docker restart plexserver
 ```
 * Save file and exit text editor
-* Plex Server is now set up in a Docker container, go to the web UI via a web browser to finish setting up your server
+-----
+**Plex Server is now set up in a Docker container, go to the web UI via a web browser to finish setting up your server**
