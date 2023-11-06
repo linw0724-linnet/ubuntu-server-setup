@@ -1,7 +1,7 @@
 * Skip any steps that have already been completed<br>
 * Fix 'A start job is running, wait for network to be configured' on bootup<br>
 * Install SSH Server<br>
-* [Enable Ubuntu firewall](ubuntu-server-setup/enable_ubuntu-firewall.md)<br>
+* [Enable Ubuntu firewall](enable_ubuntu-firewall.md)<br>
 * Connect via PuTTY<br>
 * Set up Ubuntu firewall for Plex Server<br>
 ```
