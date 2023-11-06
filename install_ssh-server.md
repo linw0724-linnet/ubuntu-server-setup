@@ -1,3 +1,6 @@
+> [!NOTE]
+> This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server
+-----
 * Install SSH Server
 ```
 sudo apt update
@@ -13,7 +16,7 @@ sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 ```
 sudo nano /etc/ssh/sshd_config
 ```
-* Uncomment line that starts with '#Port 22' and change it to port 33556a<br>
+* Uncomment line that starts with `#Port 22` and change it to `Port 33556`<br>
 * Save file and exit text editor<br>
 * Reconfigure Ubuntu firewall with new SSH port
 ```
@@ -28,3 +31,5 @@ sudo systemctl restart ssh
 ```
 sudo systemctl status ssh
 ```
+-----
+**SSH server is now installed and running on your host machine, you can now use PuTTY to remotely access your host machine**
