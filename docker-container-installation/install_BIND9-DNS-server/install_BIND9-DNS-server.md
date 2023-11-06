@@ -15,11 +15,11 @@ After forwarding a DNS request to an authoritative DNS server, the server will c
 
 -----
 # Instructions
-* [Fix 'A start job is running, wait for network to be configured' on bootup](../fix_network-bootup.md)
+* [Fix 'A start job is running, wait for network to be configured' on bootup](../../fix_network-bootup.md)
 
-* [Enable Ubuntu firewall](../enable_firewall.md)
+* [Enable Ubuntu firewall](../../enable_firewall.md)
 
-* [Install SSH Server](../install_ssh-server.md)
+* [Install SSH Server](../../install_ssh-server.md)
 
 * Connect via PuTTY
 
@@ -27,9 +27,9 @@ After forwarding a DNS request to an authoritative DNS server, the server will c
 ```
 sudo ufw allow 53
 ```
-* [Install Nano and update packages](../install_nano.md)
+* [Install Nano and update packages](../../install_nano.md)
 
-* [Install Docker](../install_docker.md)
+* [Install Docker](../../install_docker.md)
 
 * Create directory for BIND9 DNS Server
 ```
@@ -79,7 +79,7 @@ sudo nano /opt/dnsserver/named.conf
 ```
 * Enter configuration for BIND9 DNS Server into configuration file
 > [!NOTE]
-> Replace `<zone-file-path>` with the domain name of your zone with the name of your domain followed by `.zone`. It should look like `lin-net.net.zone`
+> Replace `<domain-name>` with the domain name of your zone
 ```
 // ACL for DNS server
 acl internal {
@@ -114,14 +114,17 @@ zone "lin-net.net" IN {
   // Designates this server as authoritative for this zone
   type master;
   // Location of zone configuration data
-  file "/etc/bind/<zone-file-path>";
+  file "/etc/bind/<domain-name>.zone";
 };
 ```
 * Save file and exit text editor
 
 * Create zone file for BIND9
+
+> [!NOTE]
+> Replace `<domain-name>` with the domain name of your zone
 ```
-sudo nano /etc/bind/<zone-file-path>
+sudo nano /etc/bind/<domain-name>.zone
 ```
 * Enter configuration for zone into zone file
 > [!NOTE]
@@ -133,7 +136,7 @@ sudo nano /etc/bind/<zone-file-path>
 // DNS resolver cache record time
 $TTL 15m
 // Specifies end of unterminated hostname references
-$ORIGIN lin-net.net.
+$ORIGIN <domain-name>.
 @      IN  SOA <domain-name>. ns.<domain-name>. (
              // Serial number for zone file
              1  ; serial
