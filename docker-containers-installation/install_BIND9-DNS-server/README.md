@@ -15,7 +15,7 @@ After forwarding a DNS request to an authoritative DNS server, the server will c
 
 -----
 # Instructions
-* [Fix 'A start job is running, wait for network to be configured' on bootup](github.com/linw0724-linnet/ubuntu-server-setup/fix_network-bootup/README.md)
+* [Fix 'A start job is running, wait for network to be configured' on bootup](github.com/linw0724-linnet/ubuntu-server-setup/blob/main/fix_network-bootup/README.md)
 
 * [Enable Ubuntu firewall](../../enable_firewall/README.md)
 
