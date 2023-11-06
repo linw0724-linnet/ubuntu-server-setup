@@ -78,6 +78,8 @@ sudo docker-compose -f /opt/dnsserver/docker-compose.yml config
 sudo nano /opt/dnsserver/named.conf
 ```
 * Enter configuration for BIND9 DNS Server into configuration file
+> [!NOTE]
+> Replace `<zone-file-path>` with the domain name of your zone with the name of your domain followed by `.zone`. It should look like `lin-net.net.zone`
 ```
 // ACL for DNS server
 acl internal {
@@ -112,22 +114,27 @@ zone "lin-net.net" IN {
   // Designates this server as authoritative for this zone
   type master;
   // Location of zone configuration data
-  file "/etc/bind/lin-net.net.zone";
+  file "/etc/bind/<zone-file-path>";
 };
 ```
 * Save file and exit text editor
 
 * Create zone file for BIND9
 ```
-sudo nano /etc/bind/lin-net.net.zone
+sudo nano /etc/bind/<zone-file-path>
 ```
 * Enter configuration for zone into zone file
+> [!NOTE]
+> Replace `<domain-name>` with the domain name of your zone
+
+> [!NOTE]
+> Replace `<host-machine-IP>` with the IPV4 address of your machine that is hosting the BIND9 DNS server
 ```
 // DNS resolver cache record time
 $TTL 15m
 // Specifies end of unterminated hostname references
 $ORIGIN lin-net.net.
-@      IN  SOA lin-net.net. ns.lin-net.net. (
+@      IN  SOA <domain-name>. ns.<domain-name>. (
              // Serial number for zone file
              1  ; serial
              // Time for secondary nameservers to query primary nameserver
@@ -140,9 +147,9 @@ $ORIGIN lin-net.net.
              1m )     ; minimum TTL
 ;
 // NS records
-@ IN NS dns.lin-net.net.
-dns IN A 10.0.0.1
-lin-net.net. IN A 10.0.0.1
+@ IN NS dns.<domain-name>.
+dns IN A <host-machine-IP>
+lin-net.net. IN A <host-machine-IP>
 ```
 * Save file and exit text editor
 
@@ -156,8 +163,11 @@ sudo docker-compose up -d
 cd
 ```
 * Testing DNS server domain mapping function
+
+> [!NOTE]
+> Replace `<domain-name>` with the domain name of your zone and replace `<host-machine-IP>` with the IPV4 address of your machine that is hosting the BIND9 DNS server
 ```
-nslookup lin-net.net 10.0.0.1
+nslookup <domain-name> <host-machine-IP>
 ```
 * Testing DNS server forwarding function
 ```
