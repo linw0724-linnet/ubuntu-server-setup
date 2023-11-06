@@ -1,7 +1,7 @@
 * Skip any steps that have already been completed<br>
 * Fix 'A start job is running, wait for network to be configured' on bootup<br>
 * [Enable Ubuntu firewall](enable_ubuntu-firewall.md)<br>
-* Install SSH Server<br>
+* [Install SSH Server](install_ssh-server.md)<br>
 * Connect via PuTTY<br>
 * Set up Ubuntu firewall for Plex Server<br>
 ```
@@ -24,11 +24,11 @@ sudo nano /etc/fstab
 * Add the following CIFS entries to the fstab file
 ```
 # Connect Plex Database CIFS share to local Plex Server database directory
-//<NAS-name>.local/<database-directory> /nas/plexserverdatabase cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+//<NAS-name>.local/<nas-database-directory> /nas/plexserverdatabase cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex Physical Media CIFS share to local Plex Server media directory
-//<NAS-name>.local/<physical-media-directory> /nas/plexserverphysicalmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+//<NAS-name>.local/<nas-physical-media-directory> /nas/plexserverphysicalmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex Temp Media CIFS share to local Plex Server media directory
-//<NAS-name>.local/<temp-media-directory> /nas/plexservertempmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+//<NAS-name>.local/<nas-temp-media-directory> /nas/plexservertempmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 ```
 * Save file and exit text editor<br>
 * Mount CIFS shares
