@@ -9,7 +9,6 @@ This instruction set will set up an Open Speed Test Server inside a Docker conta
 
 -----
 # Instructions
-
 * [Fix 'A start job is running, wait for network to be configured' on bootup](fix_network-bootup.md)
 
 * [Enable Ubuntu firewall](enable_firewall.md)
