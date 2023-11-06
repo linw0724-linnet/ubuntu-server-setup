@@ -9,11 +9,11 @@ This instruction set will set up a Plex Server inside a Docker container that ha
 
 -----
 # Instructions
-* [Fix 'A start job is running, wait for network to be configured' on bootup](fix_network-bootup.md)
+* [Fix 'A start job is running, wait for network to be configured' on bootup](../fix_network-bootup.md)
 
-* [Enable Ubuntu firewall](enable_firewall.md)
+* [Enable Ubuntu firewall](../enable_firewall.md)
 
-* [Install SSH Server](install_ssh-server.md)
+* [Install SSH Server](../install_ssh-server.md)
 
 * Connect via PuTTY
 
@@ -21,20 +21,20 @@ This instruction set will set up a Plex Server inside a Docker container that ha
 ```
 sudo ufw allow 32400/tcp
 ```
-* [Install Nano and update packages](install_nano.md)
+* [Install Nano and update packages](../install_nano.md)
 
-* [Install Docker](install_docker.md)
+* [Install Docker](../install_docker.md)
 
 * Create directories for Plex Server
 ```
 sudo mkdir -p /nas/{database,plexserverphysicalmedia,plexservertempmedia}
 sudo mkdir -p /opt/plexserver/config
 ```
-* [Install Avahi](install_avahi.md)
+* [Install Avahi](../install_avahi.md)
 
-* [Install CIFS](install_cifs.md)
+* [Install CIFS](../install_cifs.md)
 
-* [Create CIFS credentials file](create_cifs-credentials-file.md)
+* [Create CIFS credentials file](../create_cifs-credentials-file.md)
 
 * Set up CIFS shares to mount at boot up
 ```
