@@ -1,8 +1,8 @@
 > [!NOTE]
-> This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server<br>
+> This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server
 
 > [!NOTE]
-> Skip any steps that have already been completed<br>
+> Skip any steps that have already been completed
 -----
 * [Fix 'A start job is running, wait for network to be configured' on bootup](fix_network-bootup.md)
 
@@ -173,4 +173,4 @@ crontab -e
 ```
 * Save file and exit text editor
 -----
-**Plex Server is now set up in a Docker container, go to the web UI via a web browser to finish setting up your server**
+**Plex Server is now set up in a Docker container. Go to the web UI for plex via a web browser under `https://app.plex.tv/desktop/` to finish setting up your Plex Server**
