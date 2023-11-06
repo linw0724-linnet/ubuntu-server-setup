@@ -1,26 +1,26 @@
-Skip any steps that have already been completed<br>
-Fix 'A start job is running, wait for network to be configured' on bootup<br>
-Install SSH Server<br>
-Connect via PuTTY<br>
-Set up Ubuntu firewall for Plex Server<br>
+* Skip any steps that have already been completed<br>
+* Fix 'A start job is running, wait for network to be configured' on bootup<br>
+* Install SSH Server<br>
+* Connect via PuTTY<br>
+* Set up Ubuntu firewall for Plex Server<br>
 ```
 sudo ufw allow 32400/tcp
 ```
-Install Nano and update packages<br>
-Install Docker<br>
-Create directories for Plex Server<br>
+* Install Nano and update packages<br>
+* Install Docker<br>
+* Create directories for Plex Server<br>
 ```
 sudo mkdir -p /nas/{database,plexserverphysicalmedia,plexservertempmedia}
 sudo mkdir -p /opt/plexserver/config
 ```
-Install Avahi<br>
-Install CIFS<br>
-Create CIFS credentials file<br>
-Set up CIFS shares to mount at boot up<br>
+* Install Avahi<br>
+* Install CIFS<br>
+* Create CIFS credentials file<br>
+* Set up CIFS shares to mount at boot up<br>
 ```
 sudo nano /etc/fstab
 ```
-Add the following CIFS entries to the fstab file
+* Add the following CIFS entries to the fstab file
 ```
 # Connect Plex Database CIFS share to local Plex Server database directory
 //<NAS-name>.local/<database-directory> /nas/plexserverdatabase cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
@@ -29,43 +29,43 @@ Add the following CIFS entries to the fstab file
 # Connect Plex Temp Media CIFS share to local Plex Server media directory
 //<NAS-name>.local/<temp-media-directory> /nas/plexservertempmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 ```
-Save file and exit text editor<br>
-Mount CIFS shares
+* Save file and exit text editor<br>
+* Mount CIFS shares
 ```
 sudo mount -a
 ```
-Check if Plex Server physical media CIFS shares are visible
+* Check if Plex Server physical media CIFS shares are visible
 ```
 cd /nas/plexserverphysicalmedia
 ls -a
 ```
-Return to root
+* Return to root
 ```
 cd
 ```
-Check if Plex Server temp media CIFS shares are visible
+* Check if Plex Server temp media CIFS shares are visible
 ```
 cd /nas/plexservertempmedia
 ls -a
 ```
-Return to root
+* Return to root
 ```
 cd
 ```
-Check if Plex Server database CIFS shares are visible
+* Check if Plex Server database CIFS shares are visible
 ```
 cd /nas/plexserverdatabase
 ls -a
 ```
-Return to root
+* Return to root
 ```
 cd
 ```
-Configure Plex Docker container
+* Configure Plex Docker container
 ```
 sudo nano /opt/plexserver/docker-compose.yml
 ```
-Enter configuration for Plex Docker container into compose file
+* Enter configuration for Plex Docker container into compose file
 ```
 version: "3.9"
 services:
@@ -92,25 +92,25 @@ services:
       # Path to local Plex Server temp media directory
       - /nas/plexservertempmedia:/tempmedia
 ```
-Save file and exit text editor<br>
-Test Plex Docker container
+* Save file and exit text editor<br>
+* Test Plex Docker container
 ```
 sudo docker-compose -f /opt/plexserver/docker-compose.yml config
 ```
-Start Plex Docker container
+* Start Plex Docker container
 ```
 cd /opt/plexserver
 sudo docker-compose up -d
 ```
-Return to root
+* Return to root
 ```
 cd
 ```
-Creating Plex Server Database CIFS Check Script to monitor CIFS connections
+* Creating Plex Server Database CIFS Check Script to monitor CIFS connections
 ```
 sudo nano /opt/plexserver/plexserver_cifs_check.sh
 ```
-Add the following lines to the Plex Server Database CIFS Check Script for CIFS mount checking
+* Add the following lines to the Plex Server Database CIFS Check Script for CIFS mount checking
 ```
 #!/bin/bash
 # Checks if Plex CIFS shares are mounted to local corresponding Plex Server directories
@@ -123,20 +123,20 @@ if [[ mountpoint -q /nas/plexserverdatabase || mountpoint -q /nas/plexserverphys
     sudo mount -a; sudo docker restart plexserver
 fi
 ```
-Save file and exit text editor<br>
-Give Plex Server Database CIFS Check Script execute permissions
+* Save file and exit text editor<br>
+* Give Plex Server Database CIFS Check Script execute permissions
 ```
 sudo chmod 555 /opt/plexserver/plexserver_cifs_check.sh
 ```
-Return to root
+* Return to root
 ```
 cd
 ```
-Set startup scripts
+* Set startup scripts
 ```
 crontab -e
 ```
-Add the following entries to the crontab file
+* Add the following entries to the crontab file
 ```
 # Set Plex Server CIFS Check Script to run at reboot
 @reboot /opt/plexserver/plexserver_cifs_check.sh
@@ -145,4 +145,5 @@ Add the following entries to the crontab file
 # Set Plex Docker container to auto update and restart daily at 0500
 0 5 * * * docker restart plexserver
 ```
-Save file and exit text editor
+* Save file and exit text editor
+* Plex Server is now set up in a Docker container, go to the web UI via a web browser to finish setting up your server
