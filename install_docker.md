@@ -1,6 +1,13 @@
+# Introduction
 > [!NOTE]
-> This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server
+> This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server on your host machine
+
+This instruction set will install Docker on your host machine to allow for installation of Docker containers
+
+Benefits of running programs in Docker containers include the ability to easily backup/update/restore running programs quickly without affecting the rest of the host machine
+
 -----
+# Instructions
 * Remove any old versions of Docker
 ```
 sudo apt-get remove docker docker.io containerd runc
@@ -32,4 +39,5 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo apt install docker-compose
 ```
 -----
-**Docker is now installed and ready to accept installations of containers**
+# Conclusion
+Docker is now installed on your host machine and is ready to accept installations of containers
