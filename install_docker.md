@@ -1,3 +1,6 @@
+> [!NOTE]
+> This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server
+-----
 * Remove any old versions of Docker
 ```
 sudo apt-get remove docker docker.io containerd runc
@@ -28,3 +31,5 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 sudo apt install docker-compose
 ```
+-----
+**Docker is now installed and ready to accept installations of containers**
