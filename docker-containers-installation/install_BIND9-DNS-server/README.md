@@ -17,7 +17,7 @@ After forwarding a DNS request to an authoritative DNS server, the server will c
 # Instructions
 * [Fix 'A start job is running, wait for network to be configured' on bootup](../../fix_network-bootup.md)
 
-* [Enable Ubuntu firewall](../../enable_firewall/enable_firewall.md)
+* [Enable Ubuntu firewall](../../enable_firewall/README.md)
 
 * [Install SSH Server](../../install_ssh-server.md)
 
