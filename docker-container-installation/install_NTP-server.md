@@ -1,6 +1,5 @@
 > [!WARNING]
 > This instruction set is still under development and untested, please make any contributions and edits to help finalize this instruction set
-
 # Introduction
 > [!NOTE]
 > This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server on your host machine
