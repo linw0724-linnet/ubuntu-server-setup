@@ -22,11 +22,11 @@ This instruction set will set up a TrueCommand inside a Docker container that ca
 -----
 # Instructions
 ## Installing TrueCommand
-* [Fix 'A start job is running, wait for network to be configured' on bootup](fix_network-bootup.md)
+* [Fix 'A start job is running, wait for network to be configured' on bootup](../fix_network-bootup.md)
 
-* [Enable Ubuntu firewall](enable_firewall.md)
+* [Enable Ubuntu firewall](../enable_firewall.md)
 
-* [Install SSH Server](install_ssh-server.md)
+* [Install SSH Server](../install_ssh-server.md)
 
 * Connect via PuTTY
 
@@ -35,9 +35,9 @@ This instruction set will set up a TrueCommand inside a Docker container that ca
 sudo ufw allow 80
 sudo ufw allow 443
 ```
-* [Install Nano and update packages](install_nano.md)
+* [Install Nano and update packages](../install_nano.md)
 
-* [Install Docker](install_docker.md)
+* [Install Docker](../install_docker.md)
 
 * Create directory for TrueCommand
 ```
