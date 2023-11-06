@@ -36,7 +36,7 @@ sudo mkdir -p /opt/plexserver/config
 
 * [Create CIFS credentials file](create_cifs-credentials-file.md)
 
-* Set up CIFS shares to mount at boot up<br>
+* Set up CIFS shares to mount at boot up
 ```
 sudo nano /etc/fstab
 ```
