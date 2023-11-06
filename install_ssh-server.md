@@ -1,6 +1,11 @@
+# Introduction
 > [!NOTE]
-> This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server
+> This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server on your host machine
+
+This instruction set will enable SSH access on your host machine and allow for remote access via a SSH client like PuTTY
+
 -----
+# Instructions
 * Install SSH Server
 ```
 sudo apt update
@@ -32,4 +37,5 @@ sudo systemctl restart ssh
 sudo systemctl status ssh
 ```
 -----
-**SSH server is now installed and running on your host machine, you can now use PuTTY to remotely access your host machine**
+# Conclusion
+SSH server is now installed and running on your host machine, you can now use PuTTY to remotely access your host machine
