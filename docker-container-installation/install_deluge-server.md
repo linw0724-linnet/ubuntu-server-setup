@@ -5,7 +5,7 @@
 > [!NOTE]
 > Skip any steps that have already been completed
 
-This instruction set will set up a Deluge Server that has its downloads stored on a NAS and shared via SMB on the same network on your host machine
+This instruction set will set up a Deluge Server inside a Docker container that has its downloads stored on a NAS and shared via SMB on the same network on your host machine
 
 -----
 # Instructions
