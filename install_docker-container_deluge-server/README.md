@@ -32,7 +32,7 @@ sudo ufw allow 58847
 
 * Create directories for Deluge Server
 ```
-sudo mkdir -p /nas/delugeserverdownloads
+sudo mkdir -p /nas/{delugeservercompletedownloads,delugeserverincompletedownloads,delugeserverqueue,delugeservertorrents}
 sudo mkdir -p /opt/delugeserver/config
 ```
 * [Install Avahi](/install_avahi/README.md)
@@ -55,8 +55,14 @@ sudo nano /etc/fstab
 > [!IMPORTANT]
 > For the Deluge Server host machine to properly access the NAS directory, ensure that permissions are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
 ```
-# Connect Torrent CIFS share to local Deluge Server downloads directory
-//<NAS-directory> /nas/delugeserverdownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
+# Connect Torrent Complete Downloads CIFS share to local Deluge Server complete downloads directory
+//<NAS-directory> /nas/delugeservercompletedownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
+# Connect Torrent Incomplete Downloads CIFS share to local Deluge Server incomplete downloads directory
+//<NAS-directory> /nas/delugeserverincompletedownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
+# Connect Torrent Queue CIFS share to local Deluge Server queue directory
+//<NAS-directory> /nas/delugeserverqueue cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
+# Connect Torrent Torrents CIFS share to local Deluge Server torrents directory
+//<NAS-directory> /nas/delugeservertorrents cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
 ```
 * Save file and exit text editor
 
@@ -64,9 +70,36 @@ sudo nano /etc/fstab
 ```
 sudo mount -a
 ```
-* Check if CIFS shares are visible
+* Check if Complete Downloads CIFS shares are visible
 ```
-cd /nas/delugeserverdownloads
+cd /nas/delugeservercompletedownloads
+ls -a
+```
+* Return to root
+```
+cd
+```
+* Check if Incomplete Downloads CIFS shares are visible
+```
+cd /nas/delugeserverincompletedownloads
+ls -a
+```
+* Return to root
+```
+cd
+```
+* Check if Queue CIFS shares are visible
+```
+cd /nas/delugeserverqueue
+ls -a
+```
+* Return to root
+```
+cd
+```
+* Check if Torrents CIFS shares are visible
+```
+cd /nas/delugeservertorrents
 ls -a
 ```
 * Return to root
