@@ -92,42 +92,21 @@ ls -a
 ```
 cd
 ```
-* Configure Plex Docker container
+* Enter Plex Server directory
+```
+cd /opt/plexserver
+```
+* Download `docker-compose.yml` file from Github to set up the Plex Server Docker container
+```
+<Needs code>
+```
+* Edit `docker-compose.yml` file
 ```
 sudo nano /opt/plexserver/docker-compose.yml
 ```
-* Enter configuration for Plex Docker container into compose file
-> [!IMPORTANT]
-> Go to `https://www.plex.tv/claim` on a web browser to get your claim code, then replace `<insert_your_claim_token>` with the code from Plex.tv in the compose file
->
-> This will register your new server with your Plex account and allow access from `https://app.plex.tv/` in a web browser instead of using an IP address
-```
-version: "3.9"
-services:
-  plex:
-    container_name: plexserver
-    image: plexinc/pms-docker:public
-    restart: unless-stopped
-    # Configure the network mode for Plex
-    network_mode: host
-    environment:
-      - TZ=America/Los_Angeles
-      # Token from https://www.plex.tv/claim
-      - PLEX_CLAIM=<insert_your_claim_token>
-      # Internal networks for Plex
-      - ALLOWED_NETWORKS=<network/subnet separated by commas>
-    volumes:
-      # The format is <host_path>:<container_path>
-      # Path to where the Plex configuration/database files will be stored
-      - /plexserver/config:/config
-      # Path to where the Plex database backup files will be stored
-      - /nas/plexserverdatabase:/database
-      # Path to local Plex Server physical media directory
-      - /nas/plexserverphysicalmedia:/physicalmedia
-      # Path to local Plex Server temp media directory
-      - /nas/plexservertempmedia:/tempmedia
-```
-* Save file and exit text editor
+* Replace `<insert_your_claim_token>` with the claim token given to you from `https://www.plex.tv/claim`
+
+* Replace `<local-net/subnet>` with all your local networks separated by commas, it should look something like `10.0.0.1/24,10.0.0.2/24,10.0.0.3/24`
 
 * Test Plex Docker container
 ```
@@ -142,25 +121,16 @@ sudo docker-compose up -d
 ```
 cd
 ```
-* Creating Plex Server Database CIFS Check Script to monitor CIFS connections
+* Enter Plex Server directory
 ```
-sudo nano /opt/plexserver/plexserver_cifs_check.sh
+cd /opt/plexserver
 ```
-* Add the following lines to the Plex Server Database CIFS Check Script for CIFS mount checking
+* Download `plexserver_cifs_check.sh` file from Github
+> [!NOTE]
+> This script will automatically check the status of your CIFS shares and auto remount if necessary
 ```
-#!/bin/bash
-# Checks if Plex CIFS shares are mounted to local corresponding Plex Server directories
-if [[ mountpoint -q /nas/plexserverdatabase || mountpoint -q /nas/plexserverphysicalmedia || mountpoint -q /nas/plexservertempmedia ]]
-  # If Plex CIFS shares are mounted to local corresponding Plex Server directories, do nothing
-  then
-    :
-  # If Plex Database CIFS share are not mounted to local corresponding Plex Server directories, remount shares and restart Plex container
-  else
-    sudo mount -a; sudo docker restart plexserver
-fi
+<Needs code>
 ```
-* Save file and exit text editor
-
 * Give Plex Server Database CIFS Check Script execute permissions
 ```
 sudo chmod 555 /opt/plexserver/plexserver_cifs_check.sh

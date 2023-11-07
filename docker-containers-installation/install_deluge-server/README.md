@@ -87,6 +87,10 @@ cd /opt/delugeserver
 ```
 sudo docker-compose -f /opt/delugeserver/docker-compose.yml config
 ```
+* Return to root
+```
+cd
+```
 * Start Deluge Docker container
 ```
 cd /opt/delugeserver
@@ -100,13 +104,19 @@ cd
 ```
 cd /opt/delugeserver
 ```
-* Download `delugeserver_cifs_check.sh` file from Github to set up the Deluge Server Docker container
+* Download `delugeserver_cifs_check.sh` file from Github
+> [!NOTE]
+> This script will automatically check the status of your CIFS shares and auto remount if necessary
 ```
 <Needs code>
 ```
 * Give Deluge Server CIFS Check Script execute permissions
 ```
 sudo chmod 555 /opt/delugeserver/delugeserver_cifs_check.sh
+```
+* Return to root
+```
+cd
 ```
 * Set startup scripts
 ```

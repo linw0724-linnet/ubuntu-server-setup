@@ -50,6 +50,10 @@ sudo nano /opt/openspeedtestserver/docker-compose.yml
 
 * Save file and exit text editor
 
+* Return to root
+```
+cd
+```
 * Test Open Speed Test Server Docker container
 ```
 sudo docker-compose -f /opt/openspeedtestserver/docker-compose.yml config

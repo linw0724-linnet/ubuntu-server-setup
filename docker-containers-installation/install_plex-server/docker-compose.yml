@@ -11,7 +11,7 @@ services:
       # Token from https://www.plex.tv/claim
       - PLEX_CLAIM=<insert_your_claim_token>
       # Internal networks for Plex
-      - ALLOWED_NETWORKS=<network/subnet separated by commas>
+      - ALLOWED_NETWORKS=<local-net/subnet>
     volumes:
       # The format is <host_path>:<container_path>
       # Path to where the Plex configuration/database files will be stored

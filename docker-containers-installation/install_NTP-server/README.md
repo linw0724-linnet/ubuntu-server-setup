@@ -34,27 +34,18 @@ sudo ufw allow 123
 ```
 sudo mkdir -p /opt/ntpserver
 ```
-* Configure NTP Server Docker container
+* Return to root
 ```
-sudo nano /opt/ntpserver/docker-compose.yml
+cd
 ```
-* Enter configuration for NTP Server Docker container into compose file
+* Enter NTP Server directory
 ```
-version: '3.9'
-services:
-  ntp:
-    container_name: ntpserver
-    image: cturra/ntp:latest
-    restart: always
-    build: .
-    environment:
-      - NTP_SERVERS=pool.ntp.org
-      - LOG_LEVEL=0
-    ports:
-      - '123:123/udp'
+cd /opt/delugeserver
 ```
-* Save file and exit text editor
-
+* Download `docker-compose.yml` file from Github to set up the NTP Server Docker container
+```
+<Needs code>
+```
 * Test NTP Server Docker container
 ```
 sudo docker-compose -f /opt/ntpserver/docker-compose.yml config
