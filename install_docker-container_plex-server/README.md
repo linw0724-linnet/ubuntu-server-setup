@@ -27,7 +27,7 @@ sudo ufw allow 32400/tcp
 
 * Create directories for Plex Server
 ```
-sudo mkdir -p /nas/{database,plexserverphysicalmedia,plexservertempmedia}
+sudo mkdir -p /nas/{plexserverdatabasebackup,plexserverphysicalmedia,plexservertempmedia,plexservertranscode}
 sudo mkdir -p /opt/plexserver/config
 ```
 * [Install Avahi](/install_avahi/README.md)
@@ -50,12 +50,14 @@ sudo nano /etc/fstab
 > [!IMPORTANT]
 > For the Plex Server host machine to properly access the NAS directory, ensure that permissions are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
 ```
-# Connect Plex Database CIFS share to local Plex Server database directory
-//<NAS-directory> /nas/plexserverdatabase cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+# Connect Plex Database Backup CIFS share to local Plex Server database backup directory
+//<NAS-directory> /nas/plexserverdatabasebackup cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex Physical Media CIFS share to local Plex Server media directory
 //<NAS-directory> /nas/plexserverphysicalmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex Temp Media CIFS share to local Plex Server media directory
 //<NAS-directory> /nas/plexservertempmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+# Connect Plex Transcode CIFS share to local Plex Server transcode directory
+//<NAS-directory> /nas/plexservertranscode cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 ```
 * Save file and exit text editor
 
