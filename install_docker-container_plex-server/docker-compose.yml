@@ -17,9 +17,9 @@ services:
       # Path to where the Plex configuration/database files will be stored
       - /plexserver/config:/config
       # Path to where the Plex database backup files will be stored
-      - /nas/plexserverdatabase:/databasebackup
+      - /nas/plexserverdatabasebackup:/databasebackup
       # Path to where the Plex transcode files will be stored
-      - /nas/plexserverdatabase:/transcode
+      - /nas/plexservertranscode:/transcode
       # Path to local Plex Server physical media directory
       - /nas/plexserverphysicalmedia:/physicalmedia
       # Path to local Plex Server temp media directory
