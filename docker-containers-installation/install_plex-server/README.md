@@ -154,7 +154,7 @@ crontab -e
 ```
 * Save file and exit text editor
 -----
-#Conclusion
+# Conclusion
 Plex Server is now set up in a Docker container on your host machine
 
 Go to the web UI for plex via a web browser under `https://app.plex.tv/desktop/` to finish setting up your Plex Server
