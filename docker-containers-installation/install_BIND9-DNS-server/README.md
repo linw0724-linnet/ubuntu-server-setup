@@ -53,7 +53,7 @@ cd /opt/dnsserver
 ```
 * Download `docker-compose.yml` file from Github to set up the Open Speed Test Server Docker container
 ```
-wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/master/docker-containers-installation/install_open-speed-test-server/docker-compose.yml?token=GHSAT0AAAAAACJ6P6XWICXH5EVEACIUOSVUZKJPH2Q
+<Needs code>
 ```
 * Test BIND9 Docker container
 ```
@@ -61,7 +61,7 @@ sudo docker-compose -f /opt/dnsserver/docker-compose.yml config
 ```
 * Download main configuration file for BIND9 from Github
 ```
-wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/master/docker-containers-installation/install_open-speed-test-server/docker-compose.yml?token=GHSAT0AAAAAACJ6P6XWICXH5EVEACIUOSVUZKJPH2Q
+<Needs code>
 ```
 * Edit `named.conf` file
 ```
@@ -74,7 +74,7 @@ sudo nano /opt/dnsserver/named.conf
 * Save file and exit text editor
 * Download zone file for BIND9 from Github
 ```
-wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/master/docker-containers-installation/install_open-speed-test-server/docker-compose.yml?token=GHSAT0AAAAAACJ6P6XWICXH5EVEACIUOSVUZKJPH2Q
+<Needs code>
 ```
 * Edit `domain-name.zone` file
 ```
@@ -86,7 +86,7 @@ sudo nano /opt/dnsserver/domain-name.zone
 
 * Save file and exit text editor
 
-* Rename zone file, replacing the `<domain-name>` with the name of your domain
+* Rename zone file, replacing the `<domain-name>` with the domain name of your zone
 ```
 sudo mv /opt/dnsserver/domain-name.zone /opt/dnsserver/<domain-name>.zone
 ```
