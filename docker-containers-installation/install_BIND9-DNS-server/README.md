@@ -47,118 +47,49 @@ sudo nano /etc/systemd/resolved.conf
 
 * Save file and exit text editor
 
-* Configure BIND9 Docker container
+* Enter BIND9 DNS Server directory
 ```
-sudo nano /opt/dnsserver/docker-compose.yml
+cd /opt/dnsserver
 ```
-* Enter configuration for BIND9 Docker container into compose file
+* Download `docker-compose.yml` file from Github to set up the Open Speed Test Server Docker container
 ```
-version: '3'
-services:
-  bind9:
-    container_name: dnsserver
-    image: ubuntu/bind9
-    restart: unless-stopped
-    environment:
-      - BIND9_USER=root
-      - TZ=America/Los_Angeles
-    volumes:
-      - ./config:/etc/bind
-      - ./cache:/var/cache/bind
-      - ./records:/var/lib/bind
-    ports:
-      - '53:53'
-      - '53:53/udp'
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/master/docker-containers-installation/install_open-speed-test-server/docker-compose.yml?token=GHSAT0AAAAAACJ6P6XWICXH5EVEACIUOSVUZKJPH2Q
 ```
-* Save file and exit text editor
-
 * Test BIND9 Docker container
 ```
 sudo docker-compose -f /opt/dnsserver/docker-compose.yml config
 ```
-* Create main configuration file for BIND9
+* Download main configuration file for BIND9 from Github
+```
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/master/docker-containers-installation/install_open-speed-test-server/docker-compose.yml?token=GHSAT0AAAAAACJ6P6XWICXH5EVEACIUOSVUZKJPH2Q
+```
+* Edit `named.conf` file
 ```
 sudo nano /opt/dnsserver/named.conf
 ```
-* Enter configuration for BIND9 DNS Server into configuration file
-> [!NOTE]
-> Replace `<domain-name>` with the domain name of your zone
+* Replace `<local-net/subnet>` with the IP range of your local area network and your subnet
+
+* Replace `<domain-name>` with the domain name of your zone
+
+* Save file and exit text editor
+* Download zone file for BIND9 from Github
 ```
-// ACL for DNS server
-acl internal {
-  localhost;
-  localnets;
-  10.0.0.0/16;
-};
-options {
-  // Location of DNS cache that DNS server will use to resolve queries
-  directory "/var/cache/bind";
-  // Allow recursive queries
-  recursion yes;
-  // Allow DNS server to listen for queries on any interface
-  listen-on { any; };
-  // List of nameservers where requests will be forwarded for resolution
-  forwarders {
-    // Google
-    8.8.8.8;
-    8.8.4.4;
-    // Cloudflare
-    1.1.1.1;
-    1.0.0.1;
-    // OpenDNS
-    208.67.222.222;
-    208.67.220.220;
-  };
-  // Specifies ACL of hosts that are allowed to query DNS server
-  allow-query { internal; };
-};
-// Specifies zone for which this DNS server is authoritative
-zone "lin-net.net" IN {
-  // Designates this server as authoritative for this zone
-  type master;
-  // Location of zone configuration data
-  file "/etc/bind/<domain-name>.zone";
-};
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/master/docker-containers-installation/install_open-speed-test-server/docker-compose.yml?token=GHSAT0AAAAAACJ6P6XWICXH5EVEACIUOSVUZKJPH2Q
 ```
+* Edit `domain-name.zone` file
+```
+sudo nano /opt/dnsserver/domain-name.zone
+```
+* Replace `<domain-name>` with the domain name of your zone
+
+* Replace `<host-machine-IP>` with the IPV4 address of your machine that is hosting the BIND9 DNS server
+
 * Save file and exit text editor
 
-* Create zone file for BIND9
-
-> [!NOTE]
-> Replace `<domain-name>` with the domain name of your zone
+* Rename zone file, replacing the `<domain-name>` with the name of your domain
 ```
-sudo nano /etc/bind/<domain-name>.zone
+sudo mv /opt/dnsserver/domain-name.zone /opt/dnsserver/<domain-name>.zone
 ```
-* Enter configuration for zone into zone file
-> [!NOTE]
-> Replace `<domain-name>` with the domain name of your zone
-
-> [!NOTE]
-> Replace `<host-machine-IP>` with the IPV4 address of your machine that is hosting the BIND9 DNS server
-```
-// DNS resolver cache record time
-$TTL 15m
-// Specifies end of unterminated hostname references
-$ORIGIN <domain-name>.
-@      IN  SOA <domain-name>. ns.<domain-name>. (
-             // Serial number for zone file
-             1  ; serial
-             // Time for secondary nameservers to query primary nameserver
-             1h     ; refresh
-             // Time before secondary nameservers attempt to query primary nameserver
-             1m     ; retry
-             // Time before secondary nameservers stops offering DNS resolution
-             5m      ; expire
-             // Time for negative response to be cached
-             1m )     ; minimum TTL
-;
-// NS records
-@ IN NS dns.<domain-name>.
-dns IN A <host-machine-IP>
-lin-net.net. IN A <host-machine-IP>
-```
-* Save file and exit text editor
-
 * Start BIND9 Docker container
 ```
 cd /opt/dnsserver
