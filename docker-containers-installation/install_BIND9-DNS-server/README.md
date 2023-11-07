@@ -51,7 +51,7 @@ sudo nano /etc/systemd/resolved.conf
 ```
 cd /opt/dnsserver
 ```
-* Download `docker-compose.yml` file from Github to set up the Open Speed Test Server Docker container
+* Download `docker-compose.yml` file from Github to set up the BIND9 Docker container
 ```
 <Needs code>
 ```

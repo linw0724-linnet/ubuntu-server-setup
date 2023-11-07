@@ -75,36 +75,14 @@ ls -a
 ```
 cd
 ```
-* Configure Deluge Docker container
+* Enter Deluge Server directory
 ```
-sudo nano /opt/delugeserver/docker-compose.yml
+cd /opt/delugeserver
 ```
-* Enter configuration for Deluge Docker container into compose file
+* Download `docker-compose.yml` file from Github to set up the Deluge Server Docker container
 ```
-version: "2.1"
-services:
-  deluge:
-    container_name: delugeserver
-    image: lscr.io/linuxserver/deluge:latest
-    restart: unless-stopped
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Los_Angeles
-      - DELUGE_LOGLEVEL=error #optional
-    volumes:
-      - /delugeserver/config:/config
-      - /nas/delugeserverdownloads:/downloads
-    ports:
-      - '6881:6881'
-      - '6881:6881/udp'
-      - '8112:8112'
-      - '8113:8113'
-      - '58846:58846'
-      - '58847:58847'
+<Needs code>
 ```
-* Save file and exit text editor
-
 * Test Deluge Docker container
 ```
 sudo docker-compose -f /opt/delugeserver/docker-compose.yml config
@@ -118,25 +96,14 @@ sudo docker-compose up -d
 ```
 cd
 ```
-* Creating Deluge Server CIFS Check Script to monitor CIFS connections
+* Enter Deluge Server directory
 ```
-sudo nano /opt/delugeserver/delugeserver_cifs_check.sh
+cd /opt/delugeserver
 ```
-* Add the following lines to the Deluge Server CIFS Check Script for CIFS mount checking
+* Download `delugeserver_cifs_check.sh` file from Github to set up the Deluge Server Docker container
 ```
-#!/bin/bash
-# Checks if Torrent CIFS share is mounted to local Deluge downloads directory
-if mountpoint -q /nas/delugeserverdownloads
-  # If Torrent CIFS share is mounted to local Deluge downloads directory, do nothing
-  then
-    :
-  # If Torrent CIFS share are not mounted, remount shares and restart Deluge container
-  else
-    sudo mount -a; sudo docker restart delugeserver
-fi
+<Needs code>
 ```
-* Save file and exit text editor
-
 * Give Deluge Server CIFS Check Script execute permissions
 ```
 sudo chmod 555 /opt/delugeserver/delugeserver_cifs_check.sh
