@@ -59,6 +59,14 @@ cd /opt/dnsserver
 ```
 sudo docker-compose -f /opt/dnsserver/docker-compose.yml config
 ```
+* Return to root
+```
+cd
+```
+* Enter BIND9 DNS Server directory
+```
+cd /opt/dnsserver
+```
 * Download main configuration file for BIND9 from Github
 ```
 <Needs code>
@@ -72,6 +80,15 @@ sudo nano /opt/dnsserver/named.conf
 * Replace `<domain-name>` with the domain name of your zone
 
 * Save file and exit text editor
+
+* Return to root
+```
+cd
+```
+* Enter BIND9 DNS Server directory
+```
+cd /opt/dnsserver
+```
 * Download zone file for BIND9 from Github
 ```
 <Needs code>
