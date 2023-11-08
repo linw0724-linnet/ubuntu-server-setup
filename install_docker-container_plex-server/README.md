@@ -27,7 +27,7 @@ sudo ufw allow 32400/tcp
 
 * Create directories for Plex Server
 ```
-sudo mkdir -p /nas/{plexserverdatabasebackup,plexserverphysicalmedia,plexservertempmedia,plexservertranscode}
+sudo mkdir -p /nas/{plexserverdatabasebackup,plexserverphysicalmedia,plexservertempmedia,plexservertranscode,plexserveroptimizedmedia}
 sudo mkdir -p /opt/plexserver/config
 ```
 * [Install Avahi](/install_avahi/README.md)
@@ -50,20 +50,31 @@ sudo nano /etc/fstab
 > [!IMPORTANT]
 > For the Plex Server host machine to properly access the NAS directory, ensure that directory permissions on the NAS are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
 ```
-# Connect Plex Database Backup CIFS share to local Plex Server database backup directory
+# Connect Plex database backup CIFS share to local Plex Server database backup directory
 //<NAS-share-path> /nas/plexserverdatabasebackup cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
-# Connect Plex Physical Media CIFS share to local Plex Server media directory
+# Connect Plex physical media CIFS share to local Plex Server physical media directory
 //<NAS-share-path> /nas/plexserverphysicalmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
-# Connect Plex Temp Media CIFS share to local Plex Server media directory
+# Connect Plex temp media CIFS share to local Plex Server temp media directory
 //<NAS-share-path> /nas/plexservertempmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
-# Connect Plex Transcode CIFS share to local Plex Server transcode directory
+# Connect Plex transcode CIFS share to local Plex Server transcode directory
 //<NAS-share-path> /nas/plexservertranscode cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+# Connect Plex optimized media CIFS share to local Plex Server optimized media directory
+//<NAS-share-path> /nas/plexserveroptimizedmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 ```
 * Save file and exit text editor
 
 * Mount CIFS shares
 ```
 sudo mount -a
+```
+* Check if Plex Server database backup CIFS shares are visible
+```
+cd /nas/plexserverdatabasebackup
+ls -a
+```
+* Return to root
+```
+cd
 ```
 * Check if Plex Server physical media CIFS shares are visible
 ```
@@ -83,9 +94,18 @@ ls -a
 ```
 cd
 ```
-* Check if Plex Server database CIFS shares are visible
+* Check if Plex Server transcode CIFS shares are visible
 ```
-cd /nas/plexserverdatabase
+cd /nas/plexservertranscode
+ls -a
+```
+* Return to root
+```
+cd
+```
+* Check if Plex Server optimized media CIFS shares are visible
+```
+cd /nas/plexserveroptimizedmedia
 ls -a
 ```
 * Return to root
