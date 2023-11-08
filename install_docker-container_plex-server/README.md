@@ -42,22 +42,22 @@ sudo nano /etc/fstab
 ```
 * Add the following CIFS entries to the fstab file
 > [!NOTE]
-> Replace `<NAS-directory>` with the appropriate path of the SMB share on your NAS
+> Replace `<NAS-share-path>` with the appropriate path of the SMB share on your NAS
 
 > [!IMPORTANT]
-> For the `<NAS-directory>` path to work correctly, your root directory should be suffixed with `.local`. For example, your NAS directory will look like `NAS-name.local/plexmedia`
+> For the `<NAS-share-path>` path to work correctly, your root directory should be suffixed with `.local`. For example, your NAS share path will look like `<NAS-name>.local/<directory>`
 
 > [!IMPORTANT]
 > For the Plex Server host machine to properly access the NAS directory, ensure that directory permissions are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
 ```
 # Connect Plex Database Backup CIFS share to local Plex Server database backup directory
-//<NAS-directory> /nas/plexserverdatabasebackup cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+//<NAS-share-path> /nas/plexserverdatabasebackup cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex Physical Media CIFS share to local Plex Server media directory
-//<NAS-directory> /nas/plexserverphysicalmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+//<NAS-share-path> /nas/plexserverphysicalmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex Temp Media CIFS share to local Plex Server media directory
-//<NAS-directory> /nas/plexservertempmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+//<NAS-share-path> /nas/plexservertempmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex Transcode CIFS share to local Plex Server transcode directory
-//<NAS-directory> /nas/plexservertranscode cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
+//<NAS-share-path> /nas/plexservertranscode cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 ```
 * Save file and exit text editor
 
