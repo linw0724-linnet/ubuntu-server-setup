@@ -20,6 +20,8 @@ services:
       - /nas/plexserverdatabasebackup:/databasebackup
       # Path to where the Plex transcode files will be stored
       - /nas/plexservertranscode:/transcode
+      # Path to where the Plex optimized media will be stored
+      - /nas/plexserveroptimizedmedia:/optimized
       # Path to local Plex Server physical media directory
       - /nas/plexserverphysicalmedia:/physicalmedia
       # Path to local Plex Server temp media directory
