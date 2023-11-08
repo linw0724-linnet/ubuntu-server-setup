@@ -39,7 +39,7 @@ sudo mkdir -p /opt/delugeserver/config
 
 * [Install CIFS](/install_cifs/README.md)
 
-* [Create CIFS credentials file](/create_cifs-credentials-file/README.md)
+* [Create CIFS credentials file](/create_cifs-credentials-file/README.md) under the directory `/opt/delugeserver` and name it `.delugeservercredentials`
   
 * Set up CIFS shares to mount at boot up
 ```
@@ -47,22 +47,22 @@ sudo nano /etc/fstab
 ```
 * Add the following CIFS entries to the fstab file
 > [!NOTE]
-> Replace `<NAS-directory>` with the appropriate path of the SMB share on your NAS
+> Replace `<NAS-share-path>` with the appropriate path of the SMB share on your NAS
 
 > [!IMPORTANT]
-> For the `<NAS-directory>` path to work correctly, your root directory should be suffixed with `.local`. For example, your NAS directory will look like `NAS-name.local/plexmedia`
+> For the `<NAS-share-path>` path to work correctly, your root directory should be suffixed with `.local`. For example, your NAS directory will look like `<NAS-name>.local/<directory>`
 
 > [!IMPORTANT]
-> For the Deluge Server host machine to properly access the NAS directory, ensure that permissions are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
+> For the Deluge Server host machine to properly access the NAS directory, ensure that directory permissions on the NAS are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
 ```
 # Connect Torrent Complete Downloads CIFS share to local Deluge Server complete downloads directory
-//<NAS-directory> /nas/delugeservercompletedownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
+//<NAS-share-path> /nas/delugeservercompletedownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
 # Connect Torrent Incomplete Downloads CIFS share to local Deluge Server incomplete downloads directory
-//<NAS-directory> /nas/delugeserverincompletedownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
+//<NAS-share-path> /nas/delugeserverincompletedownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
 # Connect Torrent Queue CIFS share to local Deluge Server queue directory
-//<NAS-directory> /nas/delugeserverqueue cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
+//<NAS-share-path> /nas/delugeserverqueue cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
 # Connect Torrent Torrents CIFS share to local Deluge Server torrents directory
-//<NAS-directory> /nas/delugeservertorrents cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
+//<NAS-share-path> /nas/delugeservertorrents cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
 ```
 * Save file and exit text editor
 
