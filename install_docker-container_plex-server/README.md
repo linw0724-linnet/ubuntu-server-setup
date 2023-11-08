@@ -48,7 +48,7 @@ sudo nano /etc/fstab
 > For the `<NAS-directory>` path to work correctly, your root directory should be suffixed with `.local`. For example, your NAS directory will look like `NAS-name.local/plexmedia`
 
 > [!IMPORTANT]
-> For the Plex Server host machine to properly access the NAS directory, ensure that permissions are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
+> For the Plex Server host machine to properly access the NAS directory, ensure that directory permissions are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
 ```
 # Connect Plex Database Backup CIFS share to local Plex Server database backup directory
 //<NAS-directory> /nas/plexserverdatabasebackup cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
