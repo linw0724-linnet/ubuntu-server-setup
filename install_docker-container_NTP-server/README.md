@@ -5,7 +5,7 @@
 > [!NOTE]
 > Skip any steps that have already been completed
 
-This instruction set will set up a NTP server inside a Docker container that can be used on your local network
+This instruction set will set up a NTP server inside a Docker container that can be used on your local network for time synchronization
 
 -----
 # Instructions
