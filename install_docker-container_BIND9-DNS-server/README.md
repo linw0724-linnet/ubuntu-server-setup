@@ -50,6 +50,14 @@ cd /opt/dnsserver
 ```
 <Needs code>
 ```
+* Edit `docker-compose.yml` file
+```
+sudo nano /opt/dnsserver/docker-compose.yml
+```
+* Replace `<time-zone>` with the proper time zone name for your host machine
+
+* Save file and exit text editor
+
 * Test BIND9 Docker container
 ```
 sudo docker-compose -f /opt/dnsserver/docker-compose.yml config

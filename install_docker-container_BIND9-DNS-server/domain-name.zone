@@ -17,4 +17,4 @@ $ORIGIN <domain-name>.
 // NS records
 @ IN NS dns.<domain-name>.
 dns IN A <host-machine-IP>
-lin-net.net. IN A <host-machine-IP>
+<domain-name>. IN A <host-machine-IP>

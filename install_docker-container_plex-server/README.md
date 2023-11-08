@@ -104,7 +104,9 @@ cd /opt/plexserver
 ```
 sudo nano /opt/plexserver/docker-compose.yml
 ```
-* Replace `<insert_your_claim_token>` with the claim token given to you from `https://www.plex.tv/claim`
+* Replace `<time-zone>` with the proper time zone name for your host machine
+
+* Replace `<claim-token>` with the claim token given to you from `https://www.plex.tv/claim`
 
 * Replace `<local-net/subnet>` with all your local networks separated by commas, it should look something like `10.0.0.1/24,10.0.0.2/24,10.0.0.3/24`
 

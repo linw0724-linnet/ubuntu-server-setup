@@ -114,6 +114,14 @@ cd /opt/delugeserver
 ```
 <Needs code>
 ```
+* Edit `docker-compose.yml` file
+```
+sudo nano /opt/delugeserver/docker-compose.yml
+```
+* Replace `<time-zone>` with the proper time zone name for your host machine
+
+* Save file and exit text editor
+
 * Test Deluge Docker container
 ```
 sudo docker-compose -f /opt/delugeserver/docker-compose.yml config

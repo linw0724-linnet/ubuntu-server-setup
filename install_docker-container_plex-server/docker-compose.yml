@@ -7,9 +7,9 @@ services:
     # Configure the network mode for Plex
     network_mode: host
     environment:
-      - TZ=America/Los_Angeles
-      # Token from https://www.plex.tv/claim
-      - PLEX_CLAIM=<insert_your_claim_token>
+      - TZ=<time-zone>
+      # Plex Claim Token
+      - PLEX_CLAIM=<claim-token>
       # Internal networks for Plex
       - ALLOWED_NETWORKS=<local-net/subnet>
     volumes:

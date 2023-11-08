@@ -49,7 +49,7 @@ sudo docker run \--detach –name truecommand -v "/opt/truecommand/data:/data" -
 ```
 sudo docker ps
 ```
-* Go to on another machine and access `https://<IP_of_host_running_TrueCommand>:443` on a web browser to access TrueCommand
+* Go to on another machine and access `https://<IP-of-host-running-TrueCommand>:443` on a web browser to access TrueCommand
 
 * Initial username is `admin` and initial password is `admin`
 ## Updating TrueCommand
