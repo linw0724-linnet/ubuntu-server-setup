@@ -34,7 +34,7 @@ sudo mkdir -p /opt/plexserver/config
 
 * [Install CIFS](/install_cifs/README.md)
 
-* [Create CIFS credentials file](/create_cifs-credentials-file/README.md)
+* [Create CIFS credentials file](/create_cifs-credentials-file/README.md) under the directory `/opt/plexserver` and name it `.plexservercredentials`
 
 * Set up CIFS shares to mount at boot up
 ```
