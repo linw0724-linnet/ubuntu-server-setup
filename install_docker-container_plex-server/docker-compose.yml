@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  plex:
+    container_name: plexserver
+    image: plexinc/pms-docker:public
+    restart: unless-stopped
+    # Configure the network mode for Plex
+    network_mode: host
+    environment:
+      - TZ=<time-zone>
+      # Plex Claim Token
+      - PLEX_CLAIM=<claim-token>
+      # Internal networks for Plex
+      - ALLOWED_NETWORKS=<local-net/subnet>
+    volumes:
+      # The format is <host_path>:<container_path>
+      # Path to where the Plex configuration/database files will be stored
+      - /plexserver/config:/config
+      # Path to where the Plex database backup files will be stored
+      - /nas/plexserverdatabasebackup:/databasebackup
+      # Path to where the Plex transcode files will be stored
+      - /nas/plexservertranscode:/transcode
+      # Path to where the Plex optimized media will be stored
+      - /nas/plexserveroptimizedmedia:/optimized
+      # Path to local Plex Server physical media directory
+      - /nas/plexserverphysicalmedia:/physicalmedia
+      # Path to local Plex Server temp media directory
+      - /nas/plexservertempmedia:/tempmedia
