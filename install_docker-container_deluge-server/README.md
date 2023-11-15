@@ -112,7 +112,7 @@ cd /opt/delugeserver
 ```
 * Download `docker-compose.yml` file from Github to set up the Deluge Server Docker container
 ```
-<Needs code>
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_deluge-server/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file
 ```
@@ -147,7 +147,7 @@ cd /opt/delugeserver
 > [!NOTE]
 > This script will automatically check the status of your CIFS shares and auto remount if necessary
 ```
-<Needs code>
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_deluge-server/delugeserver_cifs_check.sh
 ```
 * Give Deluge Server CIFS Check Script execute permissions
 ```

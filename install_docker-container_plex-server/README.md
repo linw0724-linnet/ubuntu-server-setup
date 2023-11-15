@@ -118,7 +118,7 @@ cd /opt/plexserver
 ```
 * Download `docker-compose.yml` file from Github to set up the Plex Server Docker container
 ```
-<Needs code>
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/development/install_docker-container_plex-server/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file
 ```
@@ -151,7 +151,7 @@ cd /opt/plexserver
 > [!NOTE]
 > This script will automatically check the status of your CIFS shares and auto remount if necessary
 ```
-<Needs code>
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/development/install_docker-container_plex-server/plexserver_cifs_check.sh
 ```
 * Give Plex Server Database CIFS Check Script execute permissions
 ```
