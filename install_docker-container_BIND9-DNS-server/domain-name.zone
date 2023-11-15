@@ -1,0 +1,20 @@
+// DNS resolver cache record time
+$TTL 15m
+// Specifies end of unterminated hostname references
+$ORIGIN <domain-name>.
+@      IN  SOA <domain-name>. ns.<domain-name>. (
+             // Serial number for zone file
+             1  ; serial
+             // Time for secondary nameservers to query primary nameserver
+             1h     ; refresh
+             // Time before secondary nameservers attempt to query primary nameserver
+             1m     ; retry
+             // Time before secondary nameservers stops offering DNS resolution
+             5m      ; expire
+             // Time for negative response to be cached
+             1m )     ; minimum TTL
+;
+// NS records
+@ IN NS dns.<domain-name>.
+dns IN A <host-machine-IP>
+<domain-name>. IN A <host-machine-IP>
