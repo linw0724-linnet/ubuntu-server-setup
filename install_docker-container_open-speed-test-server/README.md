@@ -71,8 +71,8 @@ crontab -e
 ```
   * Add the following entries to the crontab file
 ```
-# Set Open Speed Test Server Docker container to auto update and restart daily at 0500
-0 5 * * * docker restart openspeedtestserver
+# Set Open Speed Test Server Docker container to auto update and restart weekly on Monday at 0500
+0 5 * * 1 docker restart openspeedtestserver
 ```
   * Save file and exit text editor
 -----
