@@ -27,7 +27,7 @@ sudo ufw allow 32400/tcp
 
 * Create directories for Plex Server
 ```
-sudo mkdir -p /nas/{plexserverdatabasebackup,plexserverphysicalmedia,plexservertempmedia,plexservertranscode,plexserveroptimizedmedia}
+sudo mkdir -p /nas/{plexserverdatabase,plexserverdatabasebackup,plexserverphysicalmedia,plexservertempmedia,plexservertranscode,plexserveroptimizedmedia}
 sudo mkdir -p /opt/plexserver/config
 ```
 * [Install Avahi](/install_avahi/README.md)
