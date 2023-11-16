@@ -39,8 +39,22 @@ sudo mkdir -p /opt/delugeserver/config
 
 * [Install CIFS](/install_cifs/README.md)
 
-* [Create CIFS credentials file](/create_cifs-credentials-file/README.md) under the directory `/opt/delugeserver` and name it `.delugeservercredentials`
-  
+* Enter Deluge Server directory
+```
+cd /opt/delugeserver
+```
+* Download `.delugeservercredentials` file from Github in preparation for mounting CIFS shares to the host machine
+```
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_deluge-server/.delugeservercredentials
+```
+* Edit `.delugeservercredentials` file
+```
+sudo nano /opt/delugeserver/docker-compose.yml
+```
+* Replace `<username>` and `<passowrd>` with the proper credentials for accessing the CIFS shares on the NAS
+
+* Save file and exit text editor
+
 * Set up CIFS shares to mount at boot up
 ```
 sudo nano /etc/fstab
