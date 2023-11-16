@@ -179,8 +179,8 @@ crontab -e
 ```
 # Set Deluge Server CIFS Check Script to run at reboot
 @reboot /opt/delugeserver/delugeserver_cifs_check.sh
-# Set Deluge Server CIFS Check Script to run every 1 minute
-*/1 * * * * /opt/delugeserver/delugeserver_cifs_check.sh
+# Set Deluge Server CIFS Check Script to run weekly on Monday at 0500
+0 5 * * 1 /opt/delugeserver/delugeserver_cifs_check.sh
 # Set Deluge Docker container to auto update and restart weekly on Monday at 0500
 0 5 * * 1 docker restart delugeserver
 ```
