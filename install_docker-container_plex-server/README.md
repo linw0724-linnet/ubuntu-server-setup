@@ -34,7 +34,21 @@ sudo mkdir -p /opt/plexserver/config
 
 * [Install CIFS](/install_cifs/README.md)
 
-* [Create CIFS credentials file](/create_cifs-credentials-file/README.md) under the directory `/opt/plexserver` and name it `.plexservercredentials`
+* Enter Deluge Server directory
+```
+cd /opt/plexserver
+```
+* Download `.plexservercredentials` file from Github in preparation for mounting CIFS shares to the host machine
+```
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_plex-server/.plexservercredentials
+```
+* Edit `.plexservercredentials` file
+```
+sudo nano /opt/plexserver/.plexservercredentials
+```
+* Replace `<username>` and `<passowrd>` with the proper credentials for accessing the CIFS shares on the NAS
+
+* Save file and exit text editor
 
 * Set up CIFS shares to mount at boot up
 ```
@@ -118,7 +132,7 @@ cd /opt/plexserver
 ```
 * Download `docker-compose.yml` file from Github to set up the Plex Server Docker container
 ```
-wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/development/install_docker-container_plex-server/docker-compose.yml
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_plex-server/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file
 ```
@@ -151,7 +165,7 @@ cd /opt/plexserver
 > [!NOTE]
 > This script will automatically check the status of your CIFS shares and auto remount if necessary
 ```
-wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/development/install_docker-container_plex-server/plexserver_cifs_check.sh
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_plex-server/plexserver_cifs_check.sh
 ```
 * Give Plex Server Database CIFS Check Script execute permissions
 ```
