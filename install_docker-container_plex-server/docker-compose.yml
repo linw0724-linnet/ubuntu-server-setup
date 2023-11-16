@@ -16,13 +16,16 @@ services:
       # The format is <host_path>:<container_path>
       # Path to where the Plex configuration/database files will be stored
       - /plexserver/config:/config
+      # Path to where the Plex database files will be stored
+      - /nas/plexserverdatabase:/database
       # Path to where the Plex database backup files will be stored
       - /nas/plexserverdatabasebackup:/databasebackup
-      # Path to where the Plex transcode files will be stored
-      - /nas/plexservertranscode:/transcode
-      # Path to where the Plex optimized media will be stored
-      - /nas/plexserveroptimizedmedia:/optimized
       # Path to local Plex Server physical media directory
       - /nas/plexserverphysicalmedia:/physicalmedia
       # Path to local Plex Server temp media directory
       - /nas/plexservertempmedia:/tempmedia
+      # Path to where the Plex transcode files will be stored      
+      - /nas/plexservertranscode:/transcode
+      # Path to where the Plex optimized media will be stored
+      - /nas/plexserveroptimizedmedia:/optimized
+
