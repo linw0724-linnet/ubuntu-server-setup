@@ -64,6 +64,8 @@ sudo nano /etc/fstab
 > [!IMPORTANT]
 > For the Plex Server host machine to properly access the NAS directory, ensure that directory permissions on the NAS are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
 ```
+# Connect Plex database CIFS share to local Plex Server database directory
+//<NAS-share-path> /nas/plexserverdatabase cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex database backup CIFS share to local Plex Server database backup directory
 //<NAS-share-path> /nas/plexserverdatabasebackup cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex physical media CIFS share to local Plex Server physical media directory
