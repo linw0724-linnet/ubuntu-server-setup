@@ -75,7 +75,7 @@ sudo nano /etc/fstab
 //<NAS-share-path> /nas/delugeserverincompletedownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
 # Connect Torrent Queue CIFS share to local Deluge Server queue directory
 //<NAS-share-path> /nas/delugeserverqueue cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
-# Connect Torrent Torrents CIFS share to local Deluge Server torrents directory
+# Connect Torrent Files CIFS share to local Deluge Server torrents directory
 //<NAS-share-path> /nas/delugeservertorrents cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
 ```
 * Save file and exit text editor
@@ -179,8 +179,8 @@ crontab -e
 ```
 # Set Deluge Server CIFS Check Script to run at reboot
 @reboot /opt/delugeserver/delugeserver_cifs_check.sh
-# Set Deluge Server CIFS Check Script to run every 1 minute
-*/1 * * * * /opt/delugeserver/delugeserver_cifs_check.sh
+# Set Deluge Server CIFS Check Script to run weekly on Monday at 0500
+0 5 * * 1 /opt/delugeserver/delugeserver_cifs_check.sh
 # Set Deluge Docker container to auto update and restart weekly on Monday at 0500
 0 5 * * 1 docker restart delugeserver
 ```
