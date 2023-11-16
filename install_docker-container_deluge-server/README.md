@@ -75,7 +75,7 @@ sudo nano /etc/fstab
 //<NAS-share-path> /nas/delugeserverincompletedownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
 # Connect Torrent Queue CIFS share to local Deluge Server queue directory
 //<NAS-share-path> /nas/delugeserverqueue cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
-# Connect Torrent Torrents CIFS share to local Deluge Server torrents directory
+# Connect Torrent Files CIFS share to local Deluge Server torrents directory
 //<NAS-share-path> /nas/delugeservertorrents cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
 ```
 * Save file and exit text editor
