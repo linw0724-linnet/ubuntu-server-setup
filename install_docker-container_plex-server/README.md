@@ -27,7 +27,7 @@ sudo ufw allow 32400/tcp
 
 * Create directories for Plex Server
 ```
-sudo mkdir -p /nas/{plexserverdatabasebackup,plexserverphysicalmedia,plexservertempmedia,plexservertranscode,plexserveroptimizedmedia}
+sudo mkdir -p /nas/{plexserverdatabase,plexserverdatabasebackup,plexserverphysicalmedia,plexservertempmedia,plexservertranscode,plexserveroptimizedmedia}
 sudo mkdir -p /opt/plexserver/config
 ```
 * [Install Avahi](/install_avahi/README.md)
@@ -64,6 +64,8 @@ sudo nano /etc/fstab
 > [!IMPORTANT]
 > For the Plex Server host machine to properly access the NAS directory, ensure that directory permissions on the NAS are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
 ```
+# Connect Plex database CIFS share to local Plex Server database directory
+//<NAS-share-path> /nas/plexserverdatabase cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex database backup CIFS share to local Plex Server database backup directory
 //<NAS-share-path> /nas/plexserverdatabasebackup cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex physical media CIFS share to local Plex Server physical media directory
@@ -183,8 +185,8 @@ crontab -e
 ```
 # Set Plex Server CIFS Check Script to run at reboot
 @reboot /opt/plexserver/plexserver_cifs_check.sh
-# Set Plex Server CIFS Check Script to run every 1 minute
-*/1 * * * * /opt/plexserver/plexserver_cifs_check.sh
+# Set Plex Server CIFS Check Script to run weekly on Monday at 0500
+0 5 * * 1 /opt/plexserver/plexserver_cifs_check.sh
 # Set Plex Docker container to auto update and restart weekly on Monday at 0500
 0 5 * * 1 docker restart plexserver
 ```
