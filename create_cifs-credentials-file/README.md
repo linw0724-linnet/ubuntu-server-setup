@@ -10,11 +10,13 @@ This instruction set will create a CIFS credentials file to allow for host machi
 ```
 sudo nano <directory>/.<credentialsfilename>
 ```
-* Enter credentials into file
+* Enter credentials into file, replacing `<username>` and `<password>` with the proper credentials for accessing the CIFS shares on the NAS
 ```
 username=<username>
 password=<password>
 ```
+* Save file and exit text editor
+
 * Change permissions of credentials file
 ```
 sudo chmod 600 <directory>/.<credentialsfilename>
