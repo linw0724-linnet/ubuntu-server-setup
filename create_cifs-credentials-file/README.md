@@ -6,7 +6,7 @@ This instruction set will create a CIFS credentials file to allow for host machi
 
 -----
 # Instructions
-* While in root, create CIFS credentials file
+* While in root, create CIFS credentials file, replacing `<directory>` with the directory where you want the credentials file to reside, and replacing `<credentialsfilename>` with the file name you desire for the credentials file
 ```
 sudo nano <directory>/.<credentialsfilename>
 ```
