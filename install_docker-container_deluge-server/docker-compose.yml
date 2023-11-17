@@ -11,10 +11,7 @@ services:
       - DELUGE_LOGLEVEL=error #optional
     volumes:
       - /delugeserver/config:/config
-      - /nas/delugeservercompletedownloads:/completedownloads
-      - /nas/delugeserverincompletedownloads:/incompletedownloads
-      - /nas/delugeserverqueue:/queue
-      - /nas/delugeservertorrents:/torrents
+      - /nas/delugeserverdownloads:/downloads
     ports:
       - '6881:6881'
       - '6881:6881/udp'
