@@ -61,10 +61,10 @@ sudo nano /etc/fstab
 ```
 * Add the following CIFS entries to the fstab file
 > [!NOTE]
-> Replace `<NAS-share-path>` with the appropriate path of the SMB share on your NAS
+> On the NAS, it is recommended that you put all directories needed by the Deluge server in the same dataset to prevent the Deluge server from taking a long time when moving files in between directories. Having all directories within the same NAS dataset will allow the file movements to be a folder move within the NAS share rather than a transfer over the network between NAS datasets
 
 > [!NOTE]
-> On the NAS, it is recommended that you put all directories needed by the Deluge server in the same dataset to prevent the Deluge server from taking a long time when moving files in between directories. Having all directories within the same NAS dataset will allow the file movements to be a folder move within the NAS share rather than a transfer over the network between NAS datasets
+> Replace `<NAS-share-path>` with the appropriate path of the SMB share on your NAS
 
 > [!IMPORTANT]
 > For the `<NAS-share-path>` path to work correctly, your root directory should be suffixed with `.local`. For example, your NAS directory will look like `<NAS-name>.local/<directory>`
