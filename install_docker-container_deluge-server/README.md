@@ -59,7 +59,7 @@ sudo nano /opt/delugeserver/docker-compose.yml
 ```
 sudo nano /etc/fstab
 ```
-* Add the following CIFS entries to the fstab file
+* Add the following CIFS entries to the `fstab` file
 > [!NOTE]
 > On the NAS, it is recommended that you put all directories needed by the Deluge server in the same dataset to prevent the Deluge server from taking a long time when moving files in between directories. Having all directories within the same NAS dataset will allow the file movements to be a folder move within the NAS share rather than a transfer over the network between NAS datasets
 
@@ -70,7 +70,7 @@ sudo nano /etc/fstab
 > For the `<NAS-share-path>` path to work correctly, your root directory should be suffixed with `.local`. For example, your NAS directory will look like `<NAS-name>.local/<directory>`
 
 > [!IMPORTANT]
-> For the Deluge Server host machine to properly access the NAS directory, ensure that directory permissions on the NAS are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
+> For the Deluge Server host machine to properly access the NAS directory, ensure that directory permissions on the NAS are set correctly in accordance with the credentials that you specified in your `.delugeservercredentials` file that you created earlier
 ```
 # Connect Torrents CIFS share to local Deluge Server downloads directory
 //<NAS-share-path> /nas/delugeserverdownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
@@ -133,7 +133,7 @@ cd /opt/delugeserver
 ```
 wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_deluge-server/delugeserver_cifs_check.sh
 ```
-* Give Deluge Server CIFS Check Script execute permissions
+* Give `delugeserver_cifs_check.sh` execute permissions
 ```
 sudo chmod 555 /opt/delugeserver/delugeserver_cifs_check.sh
 ```
@@ -145,7 +145,7 @@ cd
 ```
 crontab -e
 ```
-* Add the following entries to the crontab file
+* Add the following entries to the `crontab -e` file
 ```
 # Set Deluge Server CIFS Check Script to run at reboot
 @reboot /opt/delugeserver/delugeserver_cifs_check.sh
@@ -160,12 +160,12 @@ crontab -e
 ```
 sudo docker exec -it delugeserver /bin/bash
 ```
-* Enter authorization file
+* Enter `auth` file
 ```
 cd config
 vi auth
 ```
-* Add entries to the authorization file for each user
+* Add entries to the `auth` file for each user
 ```
 <username>:<password>:10
 ```
