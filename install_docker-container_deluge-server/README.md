@@ -51,7 +51,7 @@ wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/publi
 ```
 sudo nano /opt/delugeserver/docker-compose.yml
 ```
-* Replace `<username>` and `<passowrd>` with the proper credentials for accessing the CIFS shares on the NAS
+* Replace `<username>` and `<password>` with the proper credentials for accessing the CIFS shares on the NAS
 
 * Save file and exit text editor
 
