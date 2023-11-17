@@ -17,7 +17,7 @@ password=<password>
 ```
 * Save file and exit text editor
 
-* Change permissions of credentials file
+* Change permissions of credentials file, replacing `<directory>` and `<credentialsfilename>` with the values you entered when creating the credentials file at the beginning of this procedure
 ```
 sudo chmod 600 <directory>/.<credentialsfilename>
 ```
