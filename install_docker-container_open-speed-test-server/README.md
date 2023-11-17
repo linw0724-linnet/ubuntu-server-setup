@@ -69,12 +69,12 @@ cd
 ```
 crontab -e
 ```
-  * Add the following entries to the crontab file
+* Add the following entries to the `crontab -e` file
 ```
 # Set Open Speed Test Server Docker container to auto update and restart weekly on Monday at 0500
 0 5 * * 1 docker restart openspeedtestserver
 ```
-  * Save file and exit text editor
+* Save file and exit text editor
 -----
 # Conclusion
 Open Speed Test Server is now set up in a Docker container on your host machine
