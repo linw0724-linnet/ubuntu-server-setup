@@ -63,6 +63,9 @@ sudo nano /etc/fstab
 > [!NOTE]
 > Replace `<NAS-share-path>` with the appropriate path of the SMB share on your NAS
 
+> [!NOTE]
+> It is recommended that you put all directories needed by the Deluge server in the same NAS share. This will prevent the Deluge server from taking a long time when moving files in between directories (having all directories within the same NAS share will allow the file movements to be a folder move within the NAS share rather than a transfer over the network)
+
 > [!IMPORTANT]
 > For the `<NAS-share-path>` path to work correctly, your root directory should be suffixed with `.local`. For example, your NAS directory will look like `<NAS-name>.local/<directory>`
 
