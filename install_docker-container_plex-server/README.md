@@ -146,6 +146,8 @@ sudo nano /opt/plexserver/docker-compose.yml
 
 * Replace `<local-net/subnet>` with all your local networks separated by commas, it should look something like `10.0.0.1/24,10.0.0.2/24,10.0.0.3/24`
 
+* Save file and exit text editor
+
 * Test Plex Docker container
 ```
 sudo docker-compose -f /opt/plexserver/docker-compose.yml config
