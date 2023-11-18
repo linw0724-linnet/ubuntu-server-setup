@@ -41,6 +41,18 @@ cd /opt/ntpserver
 ```
 sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/install_NTP-server/install_docker-container_NTP-server/docker-compose.yml
 ```
+* Edit `docker-compose.yml` file
+```
+sudo nano /opt/ntpserver/docker-compose.yml
+```
+* Replace `<time-zone>` with the proper time zone you want the NTP Server to run in
+
+* Replace `<server-address>` with the address(s) of the time server(s) you want to use in a comma delimited list without spaces
+
+* Replace `<true-false>` with `true` if all the servers you have entered under `NTP_SERVER` support NTS (Network Time Security). Replace `<true-false>` with `false` if a the server you have entered under `NTP_SERVER` does not support NTS
+
+* Save file and exit text editor
+
 * Test NTP Server Docker container
 ```
 sudo docker-compose -f /opt/ntpserver/docker-compose.yml config
