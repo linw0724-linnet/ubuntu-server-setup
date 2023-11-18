@@ -90,17 +90,14 @@ sudo docker stop truecommand
 ```
 sudo docker rm truecommand
 ```
-* Download latest TrueCommand Docker image
+* Rebuild TrueCommand Docker container
 ```
-sudo docker image pull ixsystems/truecommand
-```
-* Start TrueCommand Docker with latest container image
-```
-sudo docker run --name truecommand -v "/opt/truecommand/data:/data" -p <host port>:80 sslport <host port>:443 --detach --restart ixsystems/truecommand:latest
+cd /opt/truecommand
+sudo docker-compose up -d
 ```
 * Check that TrueCommand Docker container is running
 ```
-sudo docker ps
+sudo docker ps -a
 ```
 -----
 # Conclusion
