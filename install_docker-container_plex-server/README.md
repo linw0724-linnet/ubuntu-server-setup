@@ -40,13 +40,13 @@ cd /opt/plexserver
 ```
 * Download `.plexservercredentials` file from Github in preparation for mounting CIFS shares to the host machine
 ```
-wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_plex-server/.plexservercredentials
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_plex-server/.plexservercredentials
 ```
 * Edit `.plexservercredentials` file
 ```
 sudo nano /opt/plexserver/.plexservercredentials
 ```
-* Replace `<username>` and `<passowrd>` with the proper credentials for accessing the CIFS shares on the NAS
+* Replace `<username>` and `<password>` with the proper credentials for accessing the CIFS shares on the NAS
 
 * Save file and exit text editor
 
@@ -54,7 +54,7 @@ sudo nano /opt/plexserver/.plexservercredentials
 ```
 sudo nano /etc/fstab
 ```
-* Add the following CIFS entries to the fstab file
+* Add the following CIFS entries to the `fstab` file
 > [!NOTE]
 > Replace `<NAS-share-path>` with the appropriate path of the SMB share on your NAS
 
@@ -62,7 +62,7 @@ sudo nano /etc/fstab
 > For the `<NAS-share-path>` path to work correctly, your root directory should be suffixed with `.local`. For example, your NAS share path will look like `<NAS-name>.local/<directory>`
 
 > [!IMPORTANT]
-> For the Plex Server host machine to properly access the NAS directory, ensure that directory permissions on the NAS are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
+> For the Plex Server host machine to properly access the NAS directory, ensure that directory permissions on the NAS are set correctly in accordance with the credentials that you specified in your `.plexservercredentials` file that you created earlier
 ```
 # Connect Plex database CIFS share to local Plex Server database directory
 //<NAS-share-path> /nas/plexserverdatabase cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
@@ -134,7 +134,7 @@ cd /opt/plexserver
 ```
 * Download `docker-compose.yml` file from Github to set up the Plex Server Docker container
 ```
-wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_plex-server/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_plex-server/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file
 ```
@@ -145,6 +145,8 @@ sudo nano /opt/plexserver/docker-compose.yml
 * Replace `<claim-token>` with the claim token given to you from `https://www.plex.tv/claim`
 
 * Replace `<local-net/subnet>` with all your local networks separated by commas, it should look something like `10.0.0.1/24,10.0.0.2/24,10.0.0.3/24`
+
+* Save file and exit text editor
 
 * Test Plex Docker container
 ```
@@ -167,9 +169,9 @@ cd /opt/plexserver
 > [!NOTE]
 > This script will automatically check the status of your CIFS shares and auto remount if necessary
 ```
-wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_plex-server/plexserver_cifs_check.sh
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_plex-server/plexserver_cifs_check.sh
 ```
-* Give Plex Server Database CIFS Check Script execute permissions
+* Give `plexserver_cifs_check.sh` execute permissions
 ```
 sudo chmod 555 /opt/plexserver/plexserver_cifs_check.sh
 ```
@@ -181,7 +183,7 @@ cd
 ```
 crontab -e
 ```
-* Add the following entries to the crontab file
+* Add the following entries to the `crontab -e` file
 ```
 # Set Plex Server CIFS Check Script to run at reboot
 @reboot /opt/plexserver/plexserver_cifs_check.sh

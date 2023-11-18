@@ -6,16 +6,18 @@ This instruction set will create a CIFS credentials file to allow for host machi
 
 -----
 # Instructions
-* While in root, create CIFS credentials file
+* While in root, create CIFS credentials file, replacing `<directory>` with the directory where you want the credentials file to reside, and replacing `<credentialsfilename>` with the file name you desire for the credentials file
 ```
 sudo nano <directory>/.<credentialsfilename>
 ```
-* Enter credentials into file
+* Enter credentials into file, replacing `<username>` and `<password>` with the proper credentials for accessing the CIFS shares on the NAS
 ```
 username=<username>
 password=<password>
 ```
-* Change permissions of credentials file
+* Save file and exit text editor
+
+* Change permissions of credentials file, replacing `<directory>` and `<credentialsfilename>` with the values you entered when creating the credentials file at the beginning of this procedure
 ```
 sudo chmod 600 <directory>/.<credentialsfilename>
 ```
