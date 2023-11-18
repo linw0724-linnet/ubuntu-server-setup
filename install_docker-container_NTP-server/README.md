@@ -39,7 +39,7 @@ cd /opt/delugeserver
 ```
 * Download `docker-compose.yml` file from Github to set up the NTP Server Docker container
 ```
-<Needs code>
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/install_NTP-server/install_docker-container_NTP-server/docker-compose.yml
 ```
 * Test NTP Server Docker container
 ```
