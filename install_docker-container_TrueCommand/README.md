@@ -30,8 +30,8 @@ This instruction set will set up a TrueCommand inside a Docker container that ca
 
 * Set up Ubuntu firewall for TrueCommand
 ```
-sudo ufw allow 80
-sudo ufw allow 443
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
 ```
 * [Install Nano and update packages](/install_nano/README.md)
 
