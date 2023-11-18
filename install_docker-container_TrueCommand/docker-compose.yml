@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  truecommand:
+    container_name: truecommand
+    image: ixsystems/truecommand:latest
+    restart: unless-stopped
+    environment:
+      - TZ=<time-zone>
+    volumes:
+      - /opt/truecommand/data:/data
+    ports:
+      - '80:80'
+      - '443:443'
