@@ -103,7 +103,7 @@ sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/
 ```
 * Edit `domain-name.zone` file
 ```
-sudo nano /opt/dnsserver/domain-name.zone
+sudo nano /etc/bind/domain-name.zone
 ```
 * Replace `<domain-name>` with the domain name of your zone
 
@@ -113,7 +113,11 @@ sudo nano /opt/dnsserver/domain-name.zone
 
 * Rename zone file, replacing the `<domain-name>` with the domain name of your zone
 ```
-sudo mv /opt/dnsserver/domain-name.zone /opt/dnsserver/<domain-name>.zone
+sudo mv /etc/bind/domain-name.zone /etc/bind/<domain-name>.zone
+```
+* Return to root
+```
+cd
 ```
 * Start BIND9 Docker container
 ```
