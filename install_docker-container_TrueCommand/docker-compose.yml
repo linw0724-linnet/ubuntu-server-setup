@@ -9,5 +9,5 @@ services:
     volumes:
       - /opt/truecommand/data:/data
     ports:
-      - '3085:80'
-      - '35443:443'
+      - '80:80'
+      - '443:443'
