@@ -53,7 +53,7 @@ cd /opt/dnsserver
 ```
 * Download `docker-compose.yml` file from Github to set up the BIND9 Docker container
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_BIND9-DNS-server/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker_BIND9-DNS-server/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file
 ```
@@ -77,7 +77,7 @@ cd /opt/dnsserver/config
 ```
 * Download `named.conf` file for BIND9 from Github
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_BIND9-DNS-server/named.conf
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker_BIND9-DNS-server/named.conf
 ```
 * Edit `named.conf` file
 ```
@@ -99,7 +99,7 @@ cd /etc/bind
 ```
 * Download `domain-name.zone` file for BIND9 from Github
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_BIND9-DNS-server/domain-name.zone
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker_BIND9-DNS-server/domain-name.zone
 ```
 * Edit `domain-name.zone` file
 ```
