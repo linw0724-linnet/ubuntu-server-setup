@@ -4,7 +4,6 @@ services:
     container_name: truecommand
     image: ixsystems/truecommand
     restart: unless-stopped
-    network_mode: host
     environment:
       - TZ=<time-zone>
     volumes:
