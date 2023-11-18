@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  ntp:
+    container_name: ntpserver
+    image: cturra/ntp:latest
+    restart: always
+    build: .
+    environment:
+      - TZ=<time-zone>
+      - NTP_SERVERS=<server-address>
+      - LOG_LEVEL=0
+      - ENABLE_NTS=<true-false>
+    ports:
+      - '123:123/udp'
