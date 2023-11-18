@@ -7,7 +7,7 @@ services:
     build: .
     environment:
       - TZ=<time-zone>
-      - NTP_SERVERS=time.google.com
+      - NTP_SERVERS=<server-address>
       - LOG_LEVEL=0
       - ENABLE_NTS=<true-false>
     ports:
