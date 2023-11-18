@@ -24,6 +24,7 @@ After forwarding a DNS request to an authoritative DNS server, the server will c
 * Set up Ubuntu firewall for BIND9 DNS Server
 ```
 sudo ufw allow 53
+sudo ufw allow 53/udp
 ```
 * [Install Nano and update packages](/install_nano/README.md)
 
@@ -42,6 +43,10 @@ sudo nano /etc/systemd/resolved.conf
 
 * Save file and exit text editor
 
+* Restart `systemd-resolved` service
+```
+sudo systemctl restart systemd-resolved
+```
 * Enter BIND9 DNS Server directory
 ```
 cd /opt/dnsserver
@@ -66,9 +71,9 @@ sudo docker-compose -f /opt/dnsserver/docker-compose.yml config
 ```
 cd
 ```
-* Enter BIND9 DNS Server directory
+* Enter BIND9 DNS Server `config` directory
 ```
-cd /opt/dnsserver
+cd /opt/dnsserver/config
 ```
 * Download `named.conf` file for BIND9 from Github
 ```
@@ -76,7 +81,7 @@ sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/
 ```
 * Edit `named.conf` file
 ```
-sudo nano /opt/dnsserver/named.conf
+sudo nano /opt/dnsserver/config/named.conf
 ```
 * Replace `<local-net/subnet>` with the IP range of your local area network and your subnet
 
@@ -88,9 +93,9 @@ sudo nano /opt/dnsserver/named.conf
 ```
 cd
 ```
-* Enter BIND9 DNS Server directory
+* Enter BIND directory
 ```
-cd /opt/dnsserver
+cd /etc/bind
 ```
 * Download `domain-name.zone` file for BIND9 from Github
 ```
