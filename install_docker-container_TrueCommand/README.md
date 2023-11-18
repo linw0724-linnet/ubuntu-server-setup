@@ -43,11 +43,11 @@ sudo mkdir -p /opt/truecommand/data
 ```
 * Install TrueCommand Docker container
 ```
-sudo docker run \--detach –name truecommand -v "/opt/truecommand/data:/data" -p port:80 -p ssl:443 --restart ixsystems/truecommand:latest
+sudo docker run \--detach -v "/DockerDir:/data" -p 9004:80 -p 9005:443 ixsystems/truecommand:nightly
 ```
 * Check that TrueCommand Docker container is running
 ```
-sudo docker ps
+sudo docker ps -a
 ```
 * Go to on another machine and access `https://<IP-of-host-running-TrueCommand>:443` on a web browser to access TrueCommand
 
