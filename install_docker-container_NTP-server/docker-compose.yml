@@ -6,7 +6,9 @@ services:
     restart: always
     build: .
     environment:
-      - NTP_SERVERS=pool.ntp.org
+      - TZ=<time-zone>
+      - NTP_SERVERS=time.google.com
       - LOG_LEVEL=0
+      - ENABLE_NTS=<true-false>
     ports:
       - '123:123/udp'
