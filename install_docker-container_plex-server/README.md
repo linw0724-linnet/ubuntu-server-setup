@@ -46,7 +46,7 @@ wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/publi
 ```
 sudo nano /opt/plexserver/.plexservercredentials
 ```
-* Replace `<username>` and `<passowrd>` with the proper credentials for accessing the CIFS shares on the NAS
+* Replace `<username>` and `<password>` with the proper credentials for accessing the CIFS shares on the NAS
 
 * Save file and exit text editor
 
@@ -54,7 +54,7 @@ sudo nano /opt/plexserver/.plexservercredentials
 ```
 sudo nano /etc/fstab
 ```
-* Add the following CIFS entries to the fstab file
+* Add the following CIFS entries to the `fstab` file
 > [!NOTE]
 > Replace `<NAS-share-path>` with the appropriate path of the SMB share on your NAS
 
@@ -62,7 +62,7 @@ sudo nano /etc/fstab
 > For the `<NAS-share-path>` path to work correctly, your root directory should be suffixed with `.local`. For example, your NAS share path will look like `<NAS-name>.local/<directory>`
 
 > [!IMPORTANT]
-> For the Plex Server host machine to properly access the NAS directory, ensure that directory permissions on the NAS are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
+> For the Plex Server host machine to properly access the NAS directory, ensure that directory permissions on the NAS are set correctly in accordance with the credentials that you specified in your `.plexservercredentials` file that you created earlier
 ```
 # Connect Plex database CIFS share to local Plex Server database directory
 //<NAS-share-path> /nas/plexserverdatabase cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
@@ -169,7 +169,7 @@ cd /opt/plexserver
 ```
 wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_plex-server/plexserver_cifs_check.sh
 ```
-* Give Plex Server Database CIFS Check Script execute permissions
+* Give `plexserver_cifs_check.sh` execute permissions
 ```
 sudo chmod 555 /opt/plexserver/plexserver_cifs_check.sh
 ```
@@ -181,7 +181,7 @@ cd
 ```
 crontab -e
 ```
-* Add the following entries to the crontab file
+* Add the following entries to the `crontab -e` file
 ```
 # Set Plex Server CIFS Check Script to run at reboot
 @reboot /opt/plexserver/plexserver_cifs_check.sh
