@@ -41,9 +41,34 @@ sudo ufw allow 443/tcp
 ```
 sudo mkdir -p /opt/truecommand/data
 ```
-* Install TrueCommand Docker container
+* Enter TrueCommand directory
 ```
-sudo docker run \--detach -v "/DockerDir:/data" -p 9004:80 -p 9005:443 ixsystems/truecommand:nightly
+cd /opt/truecommand
+```
+* Download `docker-compose.yml` file from Github to set up the TrueCommand Docker container
+```
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_TrueCommand/docker-compose.yml
+```
+* Edit `docker-compose.yml` file
+```
+sudo nano /opt/truecommand/docker-compose.yml
+```
+* Replace `<time-zone>` with the proper time zone name for your host machine
+
+* Save file and exit text editor
+
+* Test TrueCommand Docker container
+```
+sudo docker-compose -f /opt/truecommand/docker-compose.yml config
+```
+* Start TrueCommand Docker container
+```
+cd /opt/truecommand
+sudo docker-compose up -d
+```
+* Return to root
+```
+cd
 ```
 * Check that TrueCommand Docker container is running
 ```
