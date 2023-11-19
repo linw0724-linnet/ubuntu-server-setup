@@ -22,9 +22,7 @@ sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
 sudo nano /etc/ssh/sshd_config
 ```
 * Uncomment line that starts with `#Port 22` and change it to `Port 33556`.
-
 * Save file and exit text editor.
-
 * Reconfigure Ubuntu firewall with new SSH port.
 ```
 sudo ufw delete allow ssh
