@@ -39,7 +39,7 @@ cd /opt/ntpserver
 ```
 * Download `docker-compose.yml` file from Github to set up the NTP Server Docker container
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_dckr_NTP-server/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_NTP-server/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file
 ```

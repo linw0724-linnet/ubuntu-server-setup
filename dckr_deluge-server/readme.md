@@ -45,7 +45,7 @@ cd /opt/delugeserver
 ```
 * Download `.delugeservercredentials` file from Github in preparation for mounting CIFS shares to the host machine
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_dckr_deluge-server/.delugeservercredentials
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_deluge-server/.delugeservercredentials
 ```
 * Edit `.delugeservercredentials` file
 ```
@@ -96,7 +96,7 @@ cd /opt/delugeserver
 ```
 * Download `docker-compose.yml` file from Github to set up the Deluge Server Docker container
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_dckr_deluge-server/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_deluge-server/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file
 ```
@@ -131,7 +131,7 @@ cd /opt/delugeserver
 > [!NOTE]
 > This script will automatically check the status of your CIFS shares and auto remount if necessary
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_dckr_deluge-server/delugeserver_cifs_check.sh
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_deluge-server/delugeserver_cifs_check.sh
 ```
 * Give `delugeserver_cifs_check.sh` execute permissions
 ```

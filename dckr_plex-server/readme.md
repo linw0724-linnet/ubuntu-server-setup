@@ -40,7 +40,7 @@ cd /opt/plexserver
 ```
 * Download `.plexservercredentials` file from Github in preparation for mounting CIFS shares to the host machine
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_dckr_plex-server/.plexservercredentials
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_plex-server/.plexservercredentials
 ```
 * Edit `.plexservercredentials` file
 ```
@@ -134,7 +134,7 @@ cd /opt/plexserver
 ```
 * Download `docker-compose.yml` file from Github to set up the Plex Server Docker container
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_dckr_plex-server/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_plex-server/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file
 ```
@@ -169,7 +169,7 @@ cd /opt/plexserver
 > [!NOTE]
 > This script will automatically check the status of your CIFS shares and auto remount if necessary
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_dckr_plex-server/plexserver_cifs_check.sh
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_plex-server/plexserver_cifs_check.sh
 ```
 * Give `plexserver_cifs_check.sh` execute permissions
 ```
