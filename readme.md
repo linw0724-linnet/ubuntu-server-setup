@@ -1,3 +1,3 @@
-The instruction sets in this folder will perform various operations on Ubuntu Server
+The instruction sets in this folder will perform various operations on Ubuntu Server.
 
-Feel free make more branches to make edits as needed and add more instruction sets for other operations
+Feel free make more branches to make edits as needed and add more instruction sets for other operations.
