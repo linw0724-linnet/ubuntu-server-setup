@@ -9,11 +9,11 @@ This instruction set will set up a Plex Server inside a Docker container that ha
 
 -----
 # Instructions
-* [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/README.md)
+* [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md)
 
-* [Enable Ubuntu firewall](/enable_firewall/README.md)
+* [Enable Ubuntu firewall](/enable_firewall/readme.md)
 
-* [Install SSH Server](/install_ssh-server/README.md)
+* [Install SSH Server](/install_ssh-server/readme.md)
 
 * Connect via PuTTY
 
@@ -21,18 +21,18 @@ This instruction set will set up a Plex Server inside a Docker container that ha
 ```
 sudo ufw allow 32400/tcp
 ```
-* [Install Nano and update packages](/install_nano/README.md)
+* [Install Nano and update packages](/install_nano/readme.md)
 
-* [Install Docker](/install_docker/README.md)
+* [Install Docker](/install_docker/readme.md)
 
 * Create directories for Plex Server
 ```
 sudo mkdir -p /nas/{plexserverdatabase,plexserverdatabasebackup,plexserverphysicalmedia,plexservertempmedia,plexservertranscode,plexserveroptimizedmedia}
 sudo mkdir -p /opt/plexserver/config
 ```
-* [Install Avahi](/install_avahi/README.md)
+* [Install Avahi](/install_avahi/readme.md)
 
-* [Install CIFS](/install_cifs/README.md)
+* [Install CIFS](/install_cifs/readme.md)
 
 * Enter Deluge Server directory
 ```

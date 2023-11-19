@@ -13,11 +13,11 @@ After forwarding a DNS request to an authoritative DNS server, the server will c
 
 -----
 # Instructions
-* [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/README.md)
+* [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md)
 
-* [Enable Ubuntu firewall](/enable_firewall/README.md)
+* [Enable Ubuntu firewall](/enable_firewall/readme.md)
 
-* [Install SSH Server](/install_ssh-server/README.md)
+* [Install SSH Server](/install_ssh-server/readme.md)
 
 * Connect via PuTTY
 
@@ -26,9 +26,9 @@ After forwarding a DNS request to an authoritative DNS server, the server will c
 sudo ufw allow 53
 sudo ufw allow 53/udp
 ```
-* [Install Nano and update packages](/install_nano/README.md)
+* [Install Nano and update packages](/install_nano/readme.md)
 
-* [Install Docker](/install_docker/README.md)
+* [Install Docker](/install_docker/readme.md)
 
 * Create directory for BIND9 DNS Server
 ```

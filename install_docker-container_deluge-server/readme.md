@@ -32,7 +32,7 @@ sudo ufw allow 58847
 
 * Create directories for Deluge Server
 ```
-sudo mkdir -p /nas/delugeserverdownloads
+sudo mkdir -p /nas/{delugeservercompletedownloads,delugeserverincompletedownloads,delugeserverqueue,delugeservertorrents}
 sudo mkdir -p /opt/delugeserver/config
 ```
 * [Install Avahi](/install_avahi/readme.md)
@@ -45,13 +45,13 @@ cd /opt/delugeserver
 ```
 * Download `.delugeservercredentials` file from Github in preparation for mounting CIFS shares to the host machine
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_deluge-server/.delugeservercredentials
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_deluge-server/.delugeservercredentials
 ```
 * Edit `.delugeservercredentials` file
 ```
-sudo nano /opt/delugeserver/docker-compose.yml
+sudo nano /opt/delugeserver/.delugeservercredentials
 ```
-* Replace `<username>` and `<password>` with the proper credentials for accessing the CIFS shares on the NAS
+* Replace `<username>` and `<passowrd>` with the proper credentials for accessing the CIFS shares on the NAS
 
 * Save file and exit text editor
 
@@ -59,10 +59,7 @@ sudo nano /opt/delugeserver/docker-compose.yml
 ```
 sudo nano /etc/fstab
 ```
-* Add the following CIFS entries to the `fstab` file
-> [!NOTE]
-> On the NAS, it is recommended that you put all directories needed by the Deluge server in the same dataset to prevent the Deluge server from taking a long time when moving files in between directories. Having all directories within the same NAS dataset will allow the file movements made by the Deluge Server to be a file path change rather than a file transfer over the network between NAS datasets
-
+* Add the following CIFS entries to the fstab file
 > [!NOTE]
 > Replace `<NAS-share-path>` with the appropriate path of the SMB share on your NAS
 
@@ -70,10 +67,16 @@ sudo nano /etc/fstab
 > For the `<NAS-share-path>` path to work correctly, your root directory should be suffixed with `.local`. For example, your NAS directory will look like `<NAS-name>.local/<directory>`
 
 > [!IMPORTANT]
-> For the Deluge Server host machine to properly access the NAS directory, ensure that directory permissions on the NAS are set correctly in accordance with the credentials that you specified in your `.delugeservercredentials` file that you created earlier
+> For the Deluge Server host machine to properly access the NAS directory, ensure that directory permissions on the NAS are set correctly in accordance with the credentials that you specified in your CIFS credentials file that you created earlier
 ```
-# Connect Torrents CIFS share to local Deluge Server downloads directory
-//<NAS-share-path> /nas/delugeserverdownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
+# Connect Torrent Complete Downloads CIFS share to local Deluge Server complete downloads directory
+//<NAS-share-path> /nas/delugeservercompletedownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
+# Connect Torrent Incomplete Downloads CIFS share to local Deluge Server incomplete downloads directory
+//<NAS-share-path> /nas/delugeserverincompletedownloads cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
+# Connect Torrent Queue CIFS share to local Deluge Server queue directory
+//<NAS-share-path> /nas/delugeserverqueue cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
+# Connect Torrent Torrents CIFS share to local Deluge Server torrents directory
+//<NAS-share-path> /nas/delugeservertorrents cifs uid=1000,credentials=/opt/delugeserver/.delugeservercredentials,iocharset=utf8 0 0
 ```
 * Save file and exit text editor
 
@@ -81,9 +84,36 @@ sudo nano /etc/fstab
 ```
 sudo mount -a
 ```
+* Check if Complete Downloads CIFS shares are visible
+```
+cd /nas/delugeservercompletedownloads
+ls -a
+```
+* Return to root
+```
+cd
+```
+* Check if Incomplete Downloads CIFS shares are visible
+```
+cd /nas/delugeserverincompletedownloads
+ls -a
+```
+* Return to root
+```
+cd
+```
+* Check if Queue CIFS shares are visible
+```
+cd /nas/delugeserverqueue
+ls -a
+```
+* Return to root
+```
+cd
+```
 * Check if Torrents CIFS shares are visible
 ```
-cd /nas/delugeserverdownloads
+cd /nas/delugeservertorrents
 ls -a
 ```
 * Return to root
@@ -96,7 +126,7 @@ cd /opt/delugeserver
 ```
 * Download `docker-compose.yml` file from Github to set up the Deluge Server Docker container
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_deluge-server/docker-compose.yml
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_deluge-server/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file
 ```
@@ -131,9 +161,9 @@ cd /opt/delugeserver
 > [!NOTE]
 > This script will automatically check the status of your CIFS shares and auto remount if necessary
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_deluge-server/delugeserver_cifs_check.sh
+wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker-container_deluge-server/delugeserver_cifs_check.sh
 ```
-* Give `delugeserver_cifs_check.sh` execute permissions
+* Give Deluge Server CIFS Check Script execute permissions
 ```
 sudo chmod 555 /opt/delugeserver/delugeserver_cifs_check.sh
 ```
@@ -145,12 +175,12 @@ cd
 ```
 crontab -e
 ```
-* Add the following entries to the `crontab -e` file
+* Add the following entries to the crontab file
 ```
 # Set Deluge Server CIFS Check Script to run at reboot
 @reboot /opt/delugeserver/delugeserver_cifs_check.sh
-# Set Deluge Server CIFS Check Script to run weekly on Monday at 0500
-0 5 * * 1 /opt/delugeserver/delugeserver_cifs_check.sh
+# Set Deluge Server CIFS Check Script to run every 1 minute
+*/1 * * * * /opt/delugeserver/delugeserver_cifs_check.sh
 # Set Deluge Docker container to auto update and restart weekly on Monday at 0500
 0 5 * * 1 docker restart delugeserver
 ```
@@ -160,12 +190,12 @@ crontab -e
 ```
 sudo docker exec -it delugeserver /bin/bash
 ```
-* Enter `auth` file
+* Enter authorization file
 ```
 cd config
 vi auth
 ```
-* Add entries to the `auth` file for each user
+* Add entries to the authorization file for each user
 ```
 <username>:<password>:10
 ```
