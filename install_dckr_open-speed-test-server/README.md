@@ -36,7 +36,7 @@ cd /opt/openspeedtestserver
 ```
 * Download `docker-compose.yml` file from Github to set up the Open Speed Test Server Docker container
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker_open-speed-test-server/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_dckr_open-speed-test-server/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file
 ```

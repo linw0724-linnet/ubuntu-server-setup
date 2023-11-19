@@ -47,7 +47,7 @@ cd /opt/truecommand
 ```
 * Download `docker-compose.yml` file from Github to set up the TrueCommand Docker container
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_docker_TrueCommand/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/install_dckr_TrueCommand/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file
 ```
