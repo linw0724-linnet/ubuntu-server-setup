@@ -11,7 +11,7 @@ This instruction set will set up a NTP server inside a Docker container that can
 # Instructions
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
-* [Install SSH Server](/install_ssh-server/readme.md).
+* [Install SSH Server](/install_ssh-srvr/readme.md).
 * Connect via PuTTY.
 * Set up Ubuntu firewall for BIND9 DNS Server:
 ```
@@ -33,7 +33,7 @@ cd /opt/ntpserver
 ```
 * Download `docker-compose.yml` file from Github to set up the NTP Server Docker container:
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_NTP-server/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_srvr_ntp/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file:
 ```

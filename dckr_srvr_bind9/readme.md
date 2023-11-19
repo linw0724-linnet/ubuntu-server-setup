@@ -15,7 +15,7 @@ After forwarding a DNS request to an authoritative DNS server, the server will c
 # Instructions
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
-* [Install SSH Server](/install_ssh-server/readme.md).
+* [Install SSH Server](/install_ssh-srvr/readme.md).
 * Connect via PuTTY.
 * Set up Ubuntu firewall for BIND9 DNS Server:
 ```
@@ -45,7 +45,7 @@ cd /opt/dnsserver
 ```
 * Download `docker-compose.yml` file from Github to set up the BIND9 Docker container:
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_BIND9-DNS-server/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_srvr_bind9/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file:
 ```
@@ -67,7 +67,7 @@ cd /opt/dnsserver/config
 ```
 * Download `named.conf` file for BIND9 from Github:
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_BIND9-DNS-server/named.conf
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_srvr_bind9/named.conf
 ```
 * Edit `named.conf` file:
 ```
@@ -86,7 +86,7 @@ cd /etc/bind
 ```
 * Download `domain-name.zone` file for BIND9 from Github:
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_BIND9-DNS-server/domain-name.zone
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_srvr_bind9/domain-name.zone
 ```
 * Edit `domain-name.zone` file:
 ```

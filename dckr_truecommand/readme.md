@@ -22,7 +22,7 @@ This instruction set will set up a TrueCommand inside a Docker container that ca
 ## Installing TrueCommand
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
-* [Install SSH Server](/install_ssh-server/readme.md).
+* [Install SSH Server](/install_ssh-srvr/readme.md).
 * Connect via PuTTY.
 * Set up Ubuntu firewall for TrueCommand:
 ```
@@ -41,7 +41,7 @@ cd /opt/truecommand
 ```
 * Download `docker-compose.yml` file from Github to set up the TrueCommand Docker container:
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_TrueCommand/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_truecommand/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file:
 ```

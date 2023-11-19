@@ -11,7 +11,7 @@ This instruction set will set up an Open Speed Test Server inside a Docker conta
 # Instructions
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
-* [Install SSH Server](/install_ssh-server/readme.md).
+* [Install SSH Server](/install_ssh-srvr/readme.md).
 * Connect via PuTTY.
 * Set up Ubuntu firewall for Deluge Server:
 ```
@@ -30,7 +30,7 @@ cd /opt/openspeedtestserver
 ```
 * Download `docker-compose.yml` file from Github to set up the Open Speed Test Server Docker container:
 ```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_open-speed-test-server/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_srvr_open-speed-test/docker-compose.yml
 ```
 * Edit `docker-compose.yml` file:
 ```
