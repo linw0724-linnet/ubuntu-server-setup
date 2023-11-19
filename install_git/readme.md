@@ -3,6 +3,7 @@
 > This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server on your host machine.
 
 This instruction set will install Git on your host machine and allow for pulling files from Github repositories.
+
 -----
 # Instructions
 ## Check Git version
