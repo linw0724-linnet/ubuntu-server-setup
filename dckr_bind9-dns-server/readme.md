@@ -1,6 +1,7 @@
 # Introduction
 > [!NOTE]
 > This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server on your host machine.
+
 > [!NOTE]
 > Skip any steps that have already been completed.
 
