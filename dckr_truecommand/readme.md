@@ -5,12 +5,12 @@
 > [!NOTE]
 > Skip any steps that have already been completed.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Please be aware that TrueCommand is free to use up to 50 total drives.
 > 
 > Please visit the [TrueCommand webpage](https://www.truenas.com/truecommand/) for more information on pricing above 50 drives.
 
-> [!NOTE]
+> [!IMPORTANT]
 > TrueCommand is different from TrueCommand Cloud.
 > 
 > TrueCommand is a local self-hosted service while TrueCommand Cloud is a service hosted by iXsystems, Inc. via the cloud.

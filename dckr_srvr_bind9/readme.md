@@ -113,7 +113,7 @@ sudo docker-compose up -d
 cd
 ```
 * Testing DNS server domain mapping function:
-> [!NOTE]
+> [!IMPORTANT]
 > Replace `<domain-name>` with the domain name of your zone and replace `<host-machine-IP>` with the IPV4 address of your machine that is hosting the BIND9 DNS server.
 ```
 nslookup <domain-name> <host-machine-IP>

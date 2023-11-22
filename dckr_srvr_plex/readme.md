@@ -45,7 +45,7 @@ sudo nano /opt/plexserver/.plexservercredentials
 sudo nano /etc/fstab
 ```
 * Add the following CIFS entries to the `fstab` file:
-> [!NOTE]
+> [!IMPORTANT]
 > Replace `<NAS-share-path>` with the appropriate path of the SMB share on your NAS.
 
 > [!IMPORTANT]
