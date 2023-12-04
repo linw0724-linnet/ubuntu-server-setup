@@ -172,10 +172,10 @@ crontab -e
 ```
 # Set Plex Server CIFS Check Script to run at reboot
 @reboot /opt/plexserver/plexserver_cifs_check.sh
-# Set Plex Server CIFS Check Script to run weekly on Monday at 0500
-0 5 * * 1 /opt/plexserver/plexserver_cifs_check.sh
-# Set Plex Docker container to auto update and restart weekly on Monday at 0500
-0 5 * * 1 docker restart plexserver
+# Set Plex Server CIFS Check Script to run on the first day of every month at 0500
+0 5 1 * * /opt/plexserver/plexserver_cifs_check.sh
+# Set Plex Docker container to auto update and restart on the first day of every month at 0500
+0 5 1 * * docker restart plexserver
 ```
 * Save file and exit text editor.
 -----
