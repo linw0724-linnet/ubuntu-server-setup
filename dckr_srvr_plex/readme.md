@@ -158,6 +158,10 @@ sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/
 ```
 sudo chmod 555 /opt/plexserver/plexserver_cifs_check.sh
 ```
+* Return to root:
+```
+cd
+```
 * Set startup scripts:
 ```
 crontab -e
