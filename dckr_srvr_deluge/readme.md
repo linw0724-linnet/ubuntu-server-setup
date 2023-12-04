@@ -112,6 +112,23 @@ sudo docker-compose up -d
 ```
 cd
 ```
+* Bash into Deluge Docker container:
+```
+sudo docker exec -it delugeserver /bin/bash
+```
+* Enter `auth` file:
+```
+cd config
+vi auth
+```
+* Add entries to the `auth` file for each user:
+```
+<username>:<password>:10
+```
+* Save file and exit text editor.
+* On client computer, open Deluge and connect through the Connection Manager.
+-----
+# Optional Scripting
 * Enter Deluge Server directory:
 ```
 cd /opt/delugeserver
@@ -144,21 +161,6 @@ crontab -e
 0 5 1 * * docker restart delugeserver
 ```
 * Save file and exit text editor.
-* Bash into Deluge Docker container:
-```
-sudo docker exec -it delugeserver /bin/bash
-```
-* Enter `auth` file:
-```
-cd config
-vi auth
-```
-* Add entries to the `auth` file for each user:
-```
-<username>:<password>:10
-```
-* Save file and exit text editor.
-* On client computer, open Deluge and connect through the Connection Manager.
 -----
 # Conclusion
 Deluge Server is now set up in a Docker container on your host machine.
