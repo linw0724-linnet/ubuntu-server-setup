@@ -142,10 +142,6 @@ sudo docker-compose -f /opt/plexserver/docker-compose.yml config
 cd /opt/plexserver
 sudo docker-compose up -d
 ```
-* Return to root:
-```
-cd
-```
 -----
 # Optional Scripting
 * Enter Plex Server directory:
