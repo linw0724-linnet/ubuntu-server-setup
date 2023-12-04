@@ -52,10 +52,8 @@ sudo docker-compose -f /opt/openspeedtestserver/docker-compose.yml config
 cd /opt/openspeedtestserver
 sudo docker-compose up -d
 ```
-* Return to root:
-```
-cd
-```
+-----
+# Optional Scripting
 * Set startup scripts:
 ```
 crontab -e
