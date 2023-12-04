@@ -146,6 +146,8 @@ sudo docker-compose up -d
 ```
 cd
 ```
+-----
+# Optional Scripting
 * Enter Plex Server directory:
 ```
 cd /opt/plexserver
@@ -159,10 +161,6 @@ sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/
 * Give `plexserver_cifs_check.sh` execute permissions:
 ```
 sudo chmod 555 /opt/plexserver/plexserver_cifs_check.sh
-```
-* Return to root:
-```
-cd
 ```
 * Set startup scripts:
 ```
