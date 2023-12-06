@@ -11,5 +11,3 @@ services:
       - TZ=<timezone>
     volumes:
       - <path to data>:/config
-    ports:
-      - 8181:8181
