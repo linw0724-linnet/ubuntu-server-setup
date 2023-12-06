@@ -21,7 +21,7 @@ sudo ufw allow 8181
 * [Install Docker](/install_docker/readme.md).
 * Create directories for Tautulli Server:
 ```
-sudo mkdir -p /opt/tautulliserver/config
+sudo mkdir -p /opt/tautulliserver/{config,data}
 ```
 * Enter Tautulli Server directory:
 ```
