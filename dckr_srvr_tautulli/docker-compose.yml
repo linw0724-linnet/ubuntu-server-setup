@@ -4,6 +4,7 @@ services:
     container_name: tautulliserver
     image: ghcr.io/tautulli/tautulli
     restart: unless-stopped
+    network_mode: host
     environment:
       - PUID=<uid>
       - PGID=<gid>
