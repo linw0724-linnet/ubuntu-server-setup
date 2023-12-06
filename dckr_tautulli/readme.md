@@ -23,8 +23,6 @@ sudo ufw allow 8181
 ```
 sudo mkdir -p /opt/tautulliserver/config
 ```
-* [Install Avahi](/install_avahi/readme.md).
-* [Install CIFS](/install_cifs/readme.md).
 * Enter Tautulli Server directory:
 ```
 cd /opt/tautulliserver
