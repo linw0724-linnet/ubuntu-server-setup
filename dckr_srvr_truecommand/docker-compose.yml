@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   truecommand:
-    container_name: truecommand
+    container_name: truecommandserver
     image: ixsystems/truecommand:latest
     restart: unless-stopped
     environment:
