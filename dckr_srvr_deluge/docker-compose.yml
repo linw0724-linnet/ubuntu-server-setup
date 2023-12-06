@@ -5,8 +5,8 @@ services:
     image: lscr.io/linuxserver/deluge:latest
     restart: unless-stopped
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=<uid>
+      - PGID=<gid>
       - TZ=<time-zone>
       - DELUGE_LOGLEVEL=error #optional
     volumes:

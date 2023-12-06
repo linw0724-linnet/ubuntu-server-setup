@@ -94,4 +94,4 @@ sudo docker ps -a
 # Conclusion
 TrueCommand is now set up in a Docker container on your host machine.
 
-You can now configure your local TrueNAS machines with TrueCommand.
+Go to the web UI for TrueCommand via a web browser under `<host-machine-IP-address>` to finish setting up TrueCommand.

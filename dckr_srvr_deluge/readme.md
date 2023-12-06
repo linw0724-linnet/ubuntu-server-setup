@@ -93,6 +93,7 @@ sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/
 ```
 sudo nano /opt/delugeserver/docker-compose.yml
 ```
+* Replace `<uid>` and `<gid>` with the proper user PUID and PGID that you want to use to run the server.
 * Replace `<time-zone>` with the proper time zone name for your host machine.
 * Save file and exit text editor.
 * Test Deluge Docker container:
@@ -165,4 +166,4 @@ crontab -e
 # Conclusion
 Deluge Server is now set up in a Docker container on your host machine.
 
-Go to the web UI for Deluge via a web browser under `<host-machine-IP-address>:<port>` to finish setting up your Deluge Server.
+Go to the web UI for Deluge via a web browser under `<host-machine-IP-address>:8112` to finish setting up your Deluge Server.
