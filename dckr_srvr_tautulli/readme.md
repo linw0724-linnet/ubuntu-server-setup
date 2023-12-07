@@ -68,6 +68,16 @@ crontab -e
 ```
 * Save file and exit text editor.
 -----
+# Updating
+> [!NOTE]
+> Since Tautulli is running in a Docker container, when Tautulli has a new update, you cannot update through the web user interface; you will have to pull a new docker container image to update the server.
+* To update Tautulli Docker container:
+```
+cd /opt/tautulliserver
+sudo docker-compose pull
+sudo docker-compose up -d
+```
+-----
 # Conclusion
 Tautulli Server is now set up in a Docker container on your host machine.
 
