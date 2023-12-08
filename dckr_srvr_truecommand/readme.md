@@ -33,11 +33,11 @@ sudo ufw allow 443/tcp
 * [Install Docker](/install_docker/readme.md).
 * Create directory for TrueCommand:
 ```
-sudo mkdir -p /opt/truecommand/data
+sudo mkdir -p /opt/truecommandserver/data
 ```
 * Enter TrueCommand directory:
 ```
-cd /opt/truecommand
+cd /opt/truecommandserver
 ```
 * Download `docker-compose.yml` file from Github to set up the TrueCommand Docker container:
 ```
@@ -45,17 +45,17 @@ sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/
 ```
 * Edit `docker-compose.yml` file:
 ```
-sudo nano /opt/truecommand/docker-compose.yml
+sudo nano /opt/truecommandserver/docker-compose.yml
 ```
 * Replace `<time-zone>` with the proper time zone name for your host machine.
 * Save file and exit text editor.
 * Test TrueCommand Docker container:
 ```
-sudo docker-compose -f /opt/truecommand/docker-compose.yml config
+sudo docker-compose -f /opt/truecommandserver/docker-compose.yml config
 ```
 * Start TrueCommand Docker container:
 ```
-cd /opt/truecommand
+cd /opt/truecommandserver
 sudo docker-compose up -d
 ```
 * Return to root:
@@ -71,7 +71,7 @@ sudo docker ps -a
 ## Updating TrueCommand
 * To update TrueCommand Docker container, first backup container data:
 ```
-cp -r /opt/truecommand/data /opt/truecommand/databackup
+cp -r /opt/truecommandserver/data /opt/truecommandserver/databackup
 ```
 * Stop TrueCommand Docker container:
 ```
@@ -83,7 +83,7 @@ sudo docker rm truecommand
 ```
 * Rebuild TrueCommand Docker container:
 ```
-cd /opt/truecommand
+cd /opt/truecommandserver
 sudo docker-compose up -d
 ```
 * Check that TrueCommand Docker container is running:
