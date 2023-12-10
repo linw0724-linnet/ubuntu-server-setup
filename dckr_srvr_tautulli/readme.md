@@ -3,6 +3,9 @@
 > This instruction set assumes that you have already successfully completed a clean install of Ubuntu Server on your host machine.
 
 > [!NOTE]
+> This instruction set assumes that you have already successfully completed an install of Plex Media Server on your host machine following the [directions](/dckr_srvr_plex/readme.md) in this repository.
+
+> [!NOTE]
 > Skip any steps that have already been completed.
 
 This instruction set will set up a Tautulli Server inside a Docker container to monitor Plex Media Server activity and track statistics.
