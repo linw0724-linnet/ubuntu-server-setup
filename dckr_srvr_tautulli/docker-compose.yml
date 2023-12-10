@@ -10,4 +10,5 @@ services:
       - PGID=<gid>
       - TZ=<timezone>
     volumes:
-      - <path to data>:/config
+      - /opt/tautulliserver/data:/config
+      - /plexserver/config/Library/Application Support/Plex Media Server/Logs:/plexlogs
