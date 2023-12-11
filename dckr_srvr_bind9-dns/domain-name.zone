@@ -15,6 +15,6 @@ $ORIGIN <domain-name>.
              2h )     ; minimum TTL
 ;
 // NS records
-@ IN NS ns.<domain-name>.
-ns IN A <host-machine-IP>
+@ IN NS dns.<domain-name>.
+dns IN A <host-machine-IP>
 <domain-name>. IN A <host-machine-IP>
