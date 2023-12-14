@@ -63,12 +63,11 @@ sudo docker-compose up -d
 ```
 cd
 ```
+## Installation Status Check
 * Check that TrueCommand Docker container is running:
 ```
 sudo docker ps -a
 ```
-* Go to on another machine and access `https://<IP-of-host-running-TrueCommand>:80` on a web browser to access TrueCommand.
-* Initial username is `admin` and initial password is `admin`.
 ## Update TrueCommand Server
 * To update TrueCommand Docker container, first backup container data:
 ```
@@ -87,13 +86,11 @@ sudo docker rm truecommand
 cd /opt/truecommandserver
 sudo docker-compose up -d
 ```
-## Installation Status Check
-* Check that TrueCommand Docker container is running:
-```
-sudo docker ps -a
-```
 -----
 # Conclusion
 TrueCommand is now set up in a Docker container on your host machine.
 
-Go to the web UI for TrueCommand via a web browser under `<host-machine-IP-address>` to finish setting up TrueCommand.
+Go to the web UI for TrueCommand via a web browser under `<host-machine-IP-address>:6001` to finish setting up TrueCommand.
+
+> [!NOTE]
+> Initial username is `admin` and initial password is `admin`.
