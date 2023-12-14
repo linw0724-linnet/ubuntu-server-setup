@@ -9,6 +9,7 @@ This instruction set will set up a Plex Server inside a Docker container that ha
 
 -----
 # Instructions
+## Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
 * [Install SSH Server](/install_ssh-srvr/readme.md).
@@ -117,6 +118,7 @@ ls -a
 ```
 cd
 ```
+## Install Plex Server
 * Enter Plex Server directory:
 ```
 cd /opt/plexserver
@@ -142,8 +144,12 @@ sudo docker-compose -f /opt/plexserver/docker-compose.yml config
 cd /opt/plexserver
 sudo docker-compose up -d
 ```
------
-# Optional Scripting
+## Installation Status Check
+* Check that TrueCommand Docker container is running:
+```
+sudo docker ps -a
+```
+## Optional Scripting
 * Enter Plex Server directory:
 ```
 cd /opt/plexserver

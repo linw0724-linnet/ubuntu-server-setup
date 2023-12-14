@@ -19,7 +19,7 @@ This instruction set will set up a TrueCommand inside a Docker container that ca
 
 -----
 # Instructions
-## Installing TrueCommand
+## Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
 * [Install SSH Server](/install_ssh-srvr/readme.md).
@@ -35,6 +35,7 @@ sudo ufw allow 443/tcp
 ```
 sudo mkdir -p /opt/truecommandserver/data
 ```
+## Install TrueCommand Server
 * Enter TrueCommand directory:
 ```
 cd /opt/truecommandserver
@@ -68,7 +69,7 @@ sudo docker ps -a
 ```
 * Go to on another machine and access `https://<IP-of-host-running-TrueCommand>:80` on a web browser to access TrueCommand.
 * Initial username is `admin` and initial password is `admin`.
-## Updating TrueCommand
+## Update TrueCommand Server
 * To update TrueCommand Docker container, first backup container data:
 ```
 cp -r /opt/truecommandserver/data /opt/truecommandserver/databackup
@@ -86,6 +87,7 @@ sudo docker rm truecommand
 cd /opt/truecommandserver
 sudo docker-compose up -d
 ```
+## Installation Status Check
 * Check that TrueCommand Docker container is running:
 ```
 sudo docker ps -a

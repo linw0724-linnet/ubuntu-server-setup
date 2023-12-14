@@ -24,6 +24,7 @@ sudo apt update
 ```
 sudo apt install git
 ```
+## Installation Status Check
 * Check the version of Git installed on your host machine:
 ```
 git --version

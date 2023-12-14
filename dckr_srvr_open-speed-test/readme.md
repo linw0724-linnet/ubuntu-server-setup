@@ -9,6 +9,7 @@ This instruction set will set up an Open Speed Test Server inside a Docker conta
 
 -----
 # Instructions
+## Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
 * [Install SSH Server](/install_ssh-srvr/readme.md).
@@ -24,6 +25,7 @@ sudo ufw allow 3001/udp
 ```
 sudo mkdir /opt/openspeedtestserver
 ```
+## Install Open Speed Test Server
 * Enter Open Speed Test Server directory:
 ```
 cd /opt/openspeedtestserver
@@ -52,8 +54,12 @@ sudo docker-compose -f /opt/openspeedtestserver/docker-compose.yml config
 cd /opt/openspeedtestserver
 sudo docker-compose up -d
 ```
------
-# Optional Scripting
+## Installation Status Check
+* Check that TrueCommand Docker container is running:
+```
+sudo docker ps -a
+```
+## Optional Scripting
 * Set startup scripts:
 ```
 crontab -e

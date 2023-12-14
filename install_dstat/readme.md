@@ -6,11 +6,13 @@ This instruction set will install DSTAT on your host machine.
 
 -----
 # Instructions
+## Install DSTAT
 * Install DSTAT:
 ```
 sudo apt-get update
 sudo apt-get install dstat
 ```
+## Run DSTAT
 * To run DSTAT:
 ```
 dstat

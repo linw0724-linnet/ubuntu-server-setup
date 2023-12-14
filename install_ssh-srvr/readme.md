@@ -32,6 +32,7 @@ sudo ufw allow 33556/tcp
 ```
 sudo systemctl restart ssh
 ```
+## Installation Status Check
 * To check SSH service status:
 ```
 sudo systemctl status ssh

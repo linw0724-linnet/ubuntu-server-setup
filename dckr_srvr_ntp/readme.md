@@ -9,6 +9,7 @@ This instruction set will set up a NTP server inside a Docker container that can
 
 -----
 # Instructions
+## Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
 * [Install SSH Server](/install_ssh-srvr/readme.md).
@@ -27,6 +28,7 @@ sudo mkdir -p /opt/ntpserver
 ```
 cd
 ```
+## Install NTP Server
 * Enter NTP Server directory:
 ```
 cd /opt/ntpserver
@@ -55,6 +57,11 @@ sudo docker-compose up -d ntp
 * Return to root:
 ```
 cd
+```
+## Installation Status Check
+* Check that TrueCommand Docker container is running:
+```
+sudo docker ps -a
 ```
 * Install `ntpdate`:
 ```

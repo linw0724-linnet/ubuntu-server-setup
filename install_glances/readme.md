@@ -6,10 +6,12 @@ This instruction set will install Glances on your host machine.
 
 -----
 # Instructions
-* Install DSTAT:
+## Install Glances
+* Install Glances:
 ```
 sudo apt-get install glances
 ```
+## Run Glances
 * To run Glances:
 ```
 glances
