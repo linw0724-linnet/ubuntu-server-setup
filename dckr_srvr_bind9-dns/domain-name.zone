@@ -1,0 +1,13 @@
+$TTL 86400
+$ORIGIN <domain-name>.
+@      IN  SOA <domain-name>. ns.<domain-name>. (
+             2023121101 ; serial number
+             28800      ; refresh
+             7200       ; retry
+             864000     ; expire
+             86400      ; minimum TTL
+             )
+;
+@ IN NS dns.<domain-name>.
+dns IN A <host-machine-IP>
+<domain-name>. IN A <host-machine-IP>
