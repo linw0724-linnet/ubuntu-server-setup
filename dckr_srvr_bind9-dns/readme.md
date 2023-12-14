@@ -13,6 +13,7 @@ After forwarding a DNS request to an authoritative DNS server, the server will c
 
 -----
 # Instructions
+## Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
 * [Install SSH Server](/install_ssh-srvr/readme.md).
@@ -39,6 +40,7 @@ sudo nano /etc/systemd/resolved.conf
 ```
 sudo systemctl restart systemd-resolved
 ```
+## Install BIND9 DNS Server
 * Enter BIND9 DNS Server directory:
 ```
 cd /opt/dnsserver
@@ -61,6 +63,7 @@ sudo docker-compose -f /opt/dnsserver/docker-compose.yml config
 ```
 cd
 ```
+## Create Configuration File
 * Enter BIND9 DNS Server `config` directory:
 ```
 cd /opt/dnsserver/config
@@ -80,6 +83,7 @@ sudo nano /opt/dnsserver/config/named.conf
 ```
 cd
 ```
+## Create Zone File
 * Enter BIND directory:
 ```
 cd /etc/bind
@@ -111,6 +115,11 @@ sudo docker-compose up -d
 * Return to root:
 ```
 cd
+```
+## Installation Status Check
+* Check that TrueCommand Docker container is running:
+```
+sudo docker ps -a
 ```
 * Testing DNS server domain mapping function:
 > [!IMPORTANT]
