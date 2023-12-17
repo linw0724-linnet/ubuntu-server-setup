@@ -6,6 +6,7 @@
 > Skip any steps that have already been completed.
 
 This instruction set will set up a NTP server inside a Docker container that can be used on your local network for time synchronization.
+
 -----
 # Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
