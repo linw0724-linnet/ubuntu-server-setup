@@ -5,7 +5,7 @@
 This instruction set will enable SSH access on your host machine and allow for remote access via a SSH client like PuTTY.
 
 -----
-# Instructions
+# Install SSH Server
 * Install SSH Server:
 ```
 sudo apt update
@@ -32,11 +32,12 @@ sudo ufw allow 33556/tcp
 ```
 sudo systemctl restart ssh
 ```
-## Installation Status Check
+-----
+# Installation Status Check
 * To check SSH service status:
 ```
 sudo systemctl status ssh
 ```
 -----
-# Conclusion
-SSH server is now installed and running on your host machine, you can now use PuTTY to remotely access your host machine.
+# Using SSH Server
+SSH server is now installed and running on your host machine, you can now use an SSH client such as PuTTY to remotely access your host machine.

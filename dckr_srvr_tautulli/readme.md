@@ -11,8 +11,7 @@
 This instruction set will set up a Tautulli Server inside a Docker container to monitor Plex Media Server activity and track statistics.
 
 -----
-# Instructions
-## Prerequisite Setup
+# Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
 * [Install SSH Server](/install_ssh-srvr/readme.md).
@@ -27,7 +26,8 @@ sudo ufw allow 8181
 ```
 sudo mkdir -p /opt/tautulliserver/{config,data}
 ```
-## Install Tautulli Server
+-----
+# Install Tautulli Server
 * Enter Tautulli Server directory:
 ```
 cd /opt/tautulliserver
@@ -60,12 +60,14 @@ sudo docker-compose up -d
 ```
 cd
 ```
-## Installation Status Check
+-----
+# Installation Status Check
 * Check that TrueCommand Docker container is running:
 ```
 sudo docker ps -a
 ```
-## Optional Scripting
+-----
+# Optional Scripting
 * Set startup scripts:
 ```
 crontab -e
@@ -77,7 +79,13 @@ crontab -e
 ```
 * Save file and exit text editor.
 -----
-## Update Tautulli Server
+# Using Tautulli Server
+Tautulli Server is now set up in a Docker container on your host machine.
+
+Go to the web UI for Deluge via a web browser under `<host-machine-IP-address>:8181` to finish setting up your Tautulli Server.
+
+-----
+# Update Tautulli Server
 > [!NOTE]
 > Since Tautulli is running in a Docker container, when Tautulli has a new update, you cannot update through the web user interface; you will have to pull a new docker container image to update the server.
 * To update Tautulli Docker container:
@@ -86,8 +94,3 @@ cd /opt/tautulliserver
 sudo docker-compose pull
 sudo docker-compose up -d
 ```
------
-# Conclusion
-Tautulli Server is now set up in a Docker container on your host machine.
-
-Go to the web UI for Deluge via a web browser under `<host-machine-IP-address>:8181` to finish setting up your Tautulli Server.

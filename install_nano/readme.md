@@ -5,13 +5,10 @@
 This instruction set will install the Nano text editor on your host machine and update packages.
 
 -----
-# Instructions
+# Install Nano
 * Install Nano and update packages:
 ```
 sudo apt install nano
 sudo apt update
 sudo apt upgrade
 ```
------
-# Conclusion
-Nano text editor is now installed on your host machine and packages are also updated.

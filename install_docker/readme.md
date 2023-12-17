@@ -7,7 +7,7 @@ This instruction set will install Docker on your host machine to allow for insta
 Benefits of running programs in Docker containers include the ability to easily backup/update/restore running programs quickly without affecting the rest of the host machine.
 
 -----
-# Instructions
+# Prerequisite Setup
 * Remove any old versions of Docker:
 ```
 sudo apt-get remove docker docker.io containerd runc
@@ -16,6 +16,8 @@ sudo apt-get remove docker docker.io containerd runc
 ```
 sudo apt autoremove
 ```
+-----
+# Install Docker
 * Install components for Docker repository:
 ```
 sudo apt install ca-certificates curl gnupg lsb-release
@@ -38,6 +40,3 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 sudo apt install docker-compose
 ```
------
-# Conclusion
-Docker is now installed on your host machine and is ready to accept installations of containers.

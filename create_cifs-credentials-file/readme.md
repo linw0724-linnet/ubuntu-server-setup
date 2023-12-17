@@ -5,7 +5,7 @@
 This instruction set will create a CIFS credentials file to allow for host machine access to a CIFS share.
 
 -----
-# Instructions
+# Create A CIFS Credentials File
 * While in root, create CIFS credentials file, replacing `<directory>` with the directory where you want the credentials file to reside, and replacing `<credentialsfilename>` with the file name you desire for the credentials file:
 ```
 sudo nano <directory>/.<credentialsfilename>
@@ -20,6 +20,3 @@ password=<password>
 ```
 sudo chmod 600 <directory>/.<credentialsfilename>
 ```
------
-# Conclusion
-Your CIFS credentials file is now created and given the proper permissions for usage on your host machine.

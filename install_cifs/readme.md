@@ -5,11 +5,8 @@
 This instruction set will enable access to CIFS shares on your network from your host machine.
 
 -----
-# Instructions
+# Install CIFS
 * Install CIFS:
 ```
 sudo apt-get install cifs-utils
 ```
------
-# Conclusion
-CIFS is now installed on your host machine and ready to accept new CIFS connections.

@@ -5,8 +5,7 @@
 This instruction set will install Git on your host machine and allow for pulling files from Github repositories.
 
 -----
-# Instructions
-## Check Git version
+# Check Git version
 * Check the version of Git installed on your host machine:
 ```
 git --version
@@ -15,7 +14,8 @@ If you receive an output similar to the following, then Git is already installed
 ```
 git version 2.25.1
 ```
-## Install Git if not installed
+-----
+# Install Git if not installed
 * Update local package index:
 ```
 sudo apt update
@@ -24,7 +24,8 @@ sudo apt update
 ```
 sudo apt install git
 ```
-## Installation Status Check
+-----
+# Installation Status Check
 * Check the version of Git installed on your host machine:
 ```
 git --version
@@ -33,6 +34,3 @@ If you receive an output similar to the following, then Git has been successfull
 ```
 git version 2.25.1
 ```
------
-# Conclusion
-Git is now set up on your host machine and you are ready to pull files from Github.

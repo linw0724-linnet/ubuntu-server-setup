@@ -18,8 +18,7 @@
 This instruction set will set up a TrueCommand inside a Docker container that can be used on your local network to manage your TrueNAS Core and TrueNAS Scale devices.
 
 -----
-# Instructions
-## Prerequisite Setup
+# Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
 * [Install SSH Server](/install_ssh-srvr/readme.md).
@@ -35,7 +34,8 @@ sudo ufw allow 443/tcp
 ```
 sudo mkdir -p /opt/truecommandserver/data
 ```
-## Install TrueCommand Server
+-----
+# Install TrueCommand Server
 * Enter TrueCommand directory:
 ```
 cd /opt/truecommandserver
@@ -68,7 +68,16 @@ cd
 ```
 sudo docker ps -a
 ```
-## Update TrueCommand Server
+-----
+# Using TrueCommand Server
+TrueCommand is now set up in a Docker container on your host machine.
+
+Go to the web UI for TrueCommand via a web browser under `<host-machine-IP-address>:6001` to finish setting up TrueCommand.
+
+> [!NOTE]
+> Initial username is `admin` and initial password is `admin`.
+-----
+# Update TrueCommand Server
 * To update TrueCommand Docker container, first backup container data:
 ```
 cp -r /opt/truecommandserver/data /opt/truecommandserver/databackup
@@ -86,11 +95,3 @@ sudo docker rm truecommand
 cd /opt/truecommandserver
 sudo docker-compose up -d
 ```
------
-# Conclusion
-TrueCommand is now set up in a Docker container on your host machine.
-
-Go to the web UI for TrueCommand via a web browser under `<host-machine-IP-address>:6001` to finish setting up TrueCommand.
-
-> [!NOTE]
-> Initial username is `admin` and initial password is `admin`.

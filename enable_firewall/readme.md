@@ -5,12 +5,9 @@
 This instruction set will enable Ubuntu firewall on your host machine and set it to start up automatically upon machine bootup.
 
 -----
-# Instructions
+# Enable Ubuntu Firewall
 * Enable Ubuntu firewall:
 ```
 sudo ufw status
 sudo ufw enable
 ```
------
-# Conclusion
-Ubuntu firewall is now enabled on your host machine.

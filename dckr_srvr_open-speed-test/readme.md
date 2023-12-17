@@ -8,8 +8,7 @@
 This instruction set will set up an Open Speed Test Server inside a Docker container on your host machine and allow for speed tests over your local network.
 
 -----
-# Instructions
-## Prerequisite Setup
+# Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
 * [Install SSH Server](/install_ssh-srvr/readme.md).
@@ -25,7 +24,8 @@ sudo ufw allow 3001/udp
 ```
 sudo mkdir /opt/openspeedtestserver
 ```
-## Install Open Speed Test Server
+-----
+# Install Open Speed Test Server
 * Enter Open Speed Test Server directory:
 ```
 cd /opt/openspeedtestserver
@@ -54,12 +54,14 @@ sudo docker-compose -f /opt/openspeedtestserver/docker-compose.yml config
 cd /opt/openspeedtestserver
 sudo docker-compose up -d
 ```
-## Installation Status Check
+-----
+# Installation Status Check
 * Check that TrueCommand Docker container is running:
 ```
 sudo docker ps -a
 ```
-## Optional Scripting
+-----
+# Optional Scripting
 * Set startup scripts:
 ```
 crontab -e
@@ -71,7 +73,7 @@ crontab -e
 ```
 * Save file and exit text editor.
 -----
-# Conclusion
+# Using Open Speed Test Server
 Open Speed Test Server is now set up in a Docker container on your host machine.
 
 Go to the web UI for Open Speed Test via a web browser under `<host-machine-IP-address>:3000` to conduct a speed test.

@@ -6,10 +6,8 @@
 > Skip any steps that have already been completed.
 
 This instruction set will set up a Deluge Server inside a Docker container that has its downloads stored on a NAS and shared via SMB on the same network on your host machine.
-
 -----
-# Instructions
-## Prerequisite Setup
+# Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
 * [Install SSH Server](/install_ssh-srvr/readme.md).
@@ -82,7 +80,8 @@ ls -a
 ```
 cd
 ```
-## Install Deluge Server
+-----
+# Install Deluge Server
 * Enter Deluge Server directory:
 ```
 cd /opt/delugeserver
@@ -129,12 +128,14 @@ vi auth
 <username>:<password>:10
 ```
 * Save file and exit text editor.
-## Installation Status Check
+-----
+# Installation Status Check
 * Check that TrueCommand Docker container is running:
 ```
 sudo docker ps -a
 ```
-## Optional Scripting
+-----
+# Optional Scripting
 * Enter Deluge Server directory:
 ```
 cd /opt/delugeserver
@@ -168,7 +169,9 @@ crontab -e
 ```
 * Save file and exit text editor.
 -----
-# Conclusion
+# Using Deluge Server
 Deluge Server is now set up in a Docker container on your host machine.
 
 Go to the web UI for Deluge via a web browser under `<host-machine-IP-address>:8112` to finish setting up your Deluge Server.
+> [!NOTE]
+> This readme will not go further into the configuration of the Deluge Server.

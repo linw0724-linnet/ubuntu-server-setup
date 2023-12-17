@@ -5,11 +5,8 @@
 This instruction set will enable Avahi on your host machine to allow for hostname resolution from DNS.
 
 -----
-# Instructions
+# Install Avahi
 * Install Avahi for hostname resolution:
 ```
 sudo apt-get install avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan
 ```
------
-# Conclusion
-Avahi is now enabled on your host machine and hostnames on the network will now be resolved from DNS.

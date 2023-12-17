@@ -5,18 +5,15 @@
 This instruction set will install Glances on your host machine.
 
 -----
-# Instructions
-## Install Glances
+# Install Glances
 * Install Glances:
 ```
 sudo apt-get install glances
 ```
-## Run Glances
+-----
+# Using Glances
 * To run Glances:
 ```
 glances
 ```
 * To exit Glances, hold `Ctrl` + `C`.
------
-# Conclusion
-Glances is now installed on your host machine.

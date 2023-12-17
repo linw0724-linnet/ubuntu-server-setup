@@ -8,8 +8,7 @@
 This instruction set will set up a NTP server inside a Docker container that can be used on your local network for time synchronization.
 
 -----
-# Instructions
-## Prerequisite Setup
+# Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
 * [Install SSH Server](/install_ssh-srvr/readme.md).
@@ -28,7 +27,8 @@ sudo mkdir -p /opt/ntpserver
 ```
 cd
 ```
-## Install NTP Server
+-----
+# Install NTP Server
 * Enter NTP Server directory:
 ```
 cd /opt/ntpserver
@@ -58,7 +58,8 @@ sudo docker-compose up -d ntp
 ```
 cd
 ```
-## Installation Status Check
+-----
+# Installation Status Check
 * Check that TrueCommand Docker container is running:
 ```
 sudo docker ps -a
@@ -126,9 +127,7 @@ time.cloudflare.com        35  18  139m     +0.014      0.141   -662us   530us
 time1.google.com           33  13  128m     -0.007      0.138   +318us   460us
 ```
 -----
-# Conclusion
-NTP Server is now set up in a Docker container on your host machine.
+# Using NTP Server
+You can setup the DHCP Server to point your clients to the NTP Server.
 
-You can now configure your local network clients to point to the host machine IP address for their NTP Server entry.
-
-You can also set the host machine IP address to be distributed as the NTP Server address via DHCP.
+For Windows, you can set the NTP Server under your clock settings in the time synchronization dialogue.

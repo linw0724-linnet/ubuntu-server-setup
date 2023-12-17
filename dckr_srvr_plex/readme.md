@@ -8,8 +8,7 @@
 This instruction set will set up a Plex Server inside a Docker container that has its media stored on a NAS and shared via SMB on the same network on your host machine.
 
 -----
-# Instructions
-## Prerequisite Setup
+# Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
 * [Enable Ubuntu firewall](/enable_firewall/readme.md).
 * [Install SSH Server](/install_ssh-srvr/readme.md).
@@ -118,7 +117,8 @@ ls -a
 ```
 cd
 ```
-## Install Plex Server
+-----
+# Install Plex Server
 * Enter Plex Server directory:
 ```
 cd /opt/plexserver
@@ -144,12 +144,14 @@ sudo docker-compose -f /opt/plexserver/docker-compose.yml config
 cd /opt/plexserver
 sudo docker-compose up -d
 ```
-## Installation Status Check
+-----
+# Installation Status Check
 * Check that TrueCommand Docker container is running:
 ```
 sudo docker ps -a
 ```
-## Optional Scripting
+-----
+# Optional Scripting
 * Enter Plex Server directory:
 ```
 cd /opt/plexserver
@@ -183,7 +185,7 @@ crontab -e
 ```
 * Save file and exit text editor.
 -----
-# Conclusion
+# Using Plex Server
 Plex Server is now set up in a Docker container on your host machine.
 
 Go to the web UI for plex via a web browser under `https://app.plex.tv/desktop/` to finish setting up your Plex Server.
