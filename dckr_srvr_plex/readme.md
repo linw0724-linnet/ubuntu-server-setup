@@ -40,7 +40,7 @@ sudo mkdir -p /opt/plexserver/config
 > [!NOTE]
 > You can organize your storage directories to whatever topology you want as long as you enter the correct settings to match the topology through the Plex Server UI.
 -----
-# NAS Connection
+# Optional NAS Connection
 * [Install Avahi](/install_avahi/readme.md).
 * [Install CIFS](/install_cifs/readme.md).
 * Enter Deluge Server directory:

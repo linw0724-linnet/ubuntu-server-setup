@@ -25,7 +25,7 @@ sudo ufw allow 58847
 * [Install Nano and update packages](/install_nano/readme.md).
 * [Install Docker](/install_docker/readme.md).
 -----
-# NAS Connection
+# Optional NAS Connection
 > [!NOTE]
 > This section of instructions is only used if you want the Deluge Server to store all downloads to a remote CIFS share on a NAS
 * Create directories for Deluge Server:
