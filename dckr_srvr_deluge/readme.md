@@ -6,6 +6,7 @@
 > Skip any steps that have already been completed.
 
 This instruction set will set up a Deluge Server inside a Docker container that has its downloads stored on a NAS and shared via SMB on the same network on your host machine.
+
 -----
 # Prerequisite Setup
 * [Fix 'A start job is running, wait for network to be configured' on bootup](/fix_network-bootup/readme.md).
@@ -28,6 +29,10 @@ sudo ufw allow 58847
 sudo mkdir -p /nas/delugeserverdownloads
 sudo mkdir -p /opt/delugeserver/config
 ```
+-----
+# NAS Connection
+> [!NOTE]
+> This section of instructions is only used if you want the Deluge Server to store all downloads to a remote CIFS share on a NAS
 * [Install Avahi](/install_avahi/readme.md).
 * [Install CIFS](/install_cifs/readme.md).
 * Enter Deluge Server directory:
@@ -75,6 +80,26 @@ sudo mount -a
 ```
 cd /nas/delugeserverdownloads
 ls -a
+```
+* Return to root:
+```
+cd
+```
+-----
+# Optional NAS Connection Scripting
+* Enter Deluge Server directory:
+```
+cd /opt/delugeserver
+```
+* Download `delugeserver_cifs_check.sh` file from Github:
+> [!NOTE]
+> This script will automatically check the status of your CIFS shares and auto remount if necessary.
+```
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_srvr_deluge/delugeserver_cifs_check.sh
+```
+* Give `delugeserver_cifs_check.sh` execute permissions:
+```
+sudo chmod 555 /opt/delugeserver/delugeserver_cifs_check.sh
 ```
 * Return to root:
 ```
@@ -136,24 +161,6 @@ sudo docker ps -a
 ```
 -----
 # Optional Scripting
-* Enter Deluge Server directory:
-```
-cd /opt/delugeserver
-```
-* Download `delugeserver_cifs_check.sh` file from Github:
-> [!NOTE]
-> This script will automatically check the status of your CIFS shares and auto remount if necessary.
-```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_srvr_deluge/delugeserver_cifs_check.sh
-```
-* Give `delugeserver_cifs_check.sh` execute permissions:
-```
-sudo chmod 555 /opt/delugeserver/delugeserver_cifs_check.sh
-```
-* Return to root:
-```
-cd
-```
 * Set startup scripts:
 ```
 crontab -e
