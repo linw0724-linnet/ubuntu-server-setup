@@ -115,7 +115,7 @@ sudo mkdir -p /nas/delugeserverdownloads//{complete,incomplete,queue,torrents}
 sudo mkdir -p /opt/delugeserver/config
 ```
 > [!NOTE]
-> Complete folder is for storage of completed torrents.
+> Complete folder is for storage of completed torrents.<br>
 > Incomplete folder is for storage of torrents that are in progress.
 > Queue folder is for storage of `.torrent` files that need to be loaded to the torrent queue.
 > Torrents folder is for storage of `.torrent` files that are already loaded to the torrent queue.
