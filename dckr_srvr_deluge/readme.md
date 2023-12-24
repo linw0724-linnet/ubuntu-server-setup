@@ -24,15 +24,15 @@ sudo ufw allow 58847
 ```
 * [Install Nano and update packages](/install_nano/readme.md).
 * [Install Docker](/install_docker/readme.md).
+-----
+# NAS Connection
+> [!NOTE]
+> This section of instructions is only used if you want the Deluge Server to store all downloads to a remote CIFS share on a NAS
 * Create directories for Deluge Server:
 ```
 sudo mkdir -p /nas/delugeserverdownloads
 sudo mkdir -p /opt/delugeserver/config
 ```
------
-# NAS Connection
-> [!NOTE]
-> This section of instructions is only used if you want the Deluge Server to store all downloads to a remote CIFS share on a NAS
 * [Install Avahi](/install_avahi/readme.md).
 * [Install CIFS](/install_cifs/readme.md).
 * Enter Deluge Server directory:
@@ -107,6 +107,18 @@ cd
 ```
 -----
 # Install Deluge Server
+* Create directories for Deluge Server:
+> [!NOTE]
+> Skip this step if you are using a NAS Share for downloads.
+```
+sudo mkdir -p /nas/delugeserverdownloads//{complete,incomplete,queue,torrents}
+sudo mkdir -p /opt/delugeserver/config
+```
+> [!NOTE]
+> Complete folder is for storage of completed torrents.
+> Incomplete folder is for storage of torrents that are in progress.
+> Queue folder is for storage of `.torrent` files that need to be loaded to the torrent queue.
+> Torrents folder is for storage of `.torrent` files that are already loaded to the torrent queue.
 * Enter Deluge Server directory:
 ```
 cd /opt/delugeserver
