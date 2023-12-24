@@ -122,7 +122,10 @@ sudo mkdir -p /opt/delugeserver/config
 > `queue` folder is for storage of `.torrent` files that need to be loaded to the torrent queue.
 >
 > `torrents` folder is for storage of `.torrent` files that are already loaded to the torrent queue.
-* `Enter Deluge Server directory:
+
+> [!NOTE]
+> You can organize your storage directories to whatever topology you want as long as you enter the correct settings to match the topology through the Deluge Server UI.
+* Enter Deluge Server directory:
 ```
 cd /opt/delugeserver
 ```

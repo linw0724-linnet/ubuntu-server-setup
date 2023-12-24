@@ -24,6 +24,23 @@ sudo ufw allow 32400/tcp
 sudo mkdir -p /nas/{plexserverdatabase,plexserverdatabasebackup,plexserverphysicalmedia,plexservertempmedia,plexservertranscode,plexserveroptimizedmedia}
 sudo mkdir -p /opt/plexserver/config
 ```
+> [!NOTE]
+> `plexserverdatabase` folder is for storage of Plex Server database files.
+>
+> `plexserverdatabasebackup` folder is for storage of Plex Server database backups.
+>
+> `plexserverphysicalmedia` folder is for storage of Plex Server library physical media.
+>
+> `plexservertempmedia` folder is for storage of Plex Server library physical temporary media.
+>
+> `plexservertranscode` folder is for storage of Plex Server transcoding data.
+>
+> `plexserveroptimizedmedia` folder is for storage of Plex Server optimized versions of media.
+
+> [!NOTE]
+> You can organize your storage directories to whatever topology you want as long as you enter the correct settings to match the topology through the Plex Server UI.
+-----
+# NAS Connection
 * [Install Avahi](/install_avahi/readme.md).
 * [Install CIFS](/install_cifs/readme.md).
 * Enter Deluge Server directory:
@@ -118,6 +135,26 @@ ls -a
 cd
 ```
 -----
+# Optional NAS Connection Scripting
+* Enter Plex Server directory:
+```
+cd /opt/plexserver
+```
+* Download `plexserver_cifs_check.sh` file from Github:
+> [!NOTE]
+> This script will automatically check the status of your CIFS shares and auto remount if necessary.
+```
+sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_srvr_plex/plexserver_cifs_check.sh
+```
+* Give `plexserver_cifs_check.sh` execute permissions:
+```
+sudo chmod 555 /opt/plexserver/plexserver_cifs_check.sh
+```
+* Return to root:
+```
+cd
+```
+-----
 # Install Plex Server
 * Enter Plex Server directory:
 ```
@@ -152,24 +189,6 @@ sudo docker ps -a
 ```
 -----
 # Optional Scripting
-* Enter Plex Server directory:
-```
-cd /opt/plexserver
-```
-* Download `plexserver_cifs_check.sh` file from Github:
-> [!NOTE]
-> This script will automatically check the status of your CIFS shares and auto remount if necessary.
-```
-sudo wget https://raw.githubusercontent.com/linw0724-linnet/ubuntu-server-setup/published/dckr_srvr_plex/plexserver_cifs_check.sh
-```
-* Give `plexserver_cifs_check.sh` execute permissions:
-```
-sudo chmod 555 /opt/plexserver/plexserver_cifs_check.sh
-```
-* Return to root:
-```
-cd
-```
 * Set startup scripts:
 ```
 crontab -e
