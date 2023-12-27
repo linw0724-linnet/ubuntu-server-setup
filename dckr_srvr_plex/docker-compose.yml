@@ -5,6 +5,8 @@ services:
     image: plexinc/pms-docker:public
     restart: unless-stopped
     network_mode: host
+    devices:
+      - /dev/dri:/dev/dri
     environment:
       - TZ=<time-zone>
       - PLEX_CLAIM=<claim-token>
