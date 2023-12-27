@@ -155,6 +155,54 @@ sudo chmod 555 /opt/plexserver/plexserver_cifs_check.sh
 cd
 ```
 -----
+# Optional Nvidia GPU Installation
+* Check which driver is being used for the Nvidia GPU:
+> [!NOTE]
+> Under `configuration`, it should say `driver=` followed by what brand of driver is being used. If it says `nvidia`, you can skip this section of instructions.
+```
+sudo lshw -c display
+```
+* List available drivers for your Nvidia GPU from the default Ubuntu repository:
+```
+sudo ubuntu-drivers devices
+```
+* To install the recommended driver, run the following command:
+```
+sudo ubuntu-drivers autoinstall
+```
+* To install a specific driver, run the following command, replacing `<version-number>` with the number associated with your desired driver:
+```
+sudo apt install nvidia-driver-<version-number>
+```
+* After the driver is installed, run the following command to reboot the computer:
+```
+sudo shutdown -r now
+```
+* After reboot, check which driver is being used for the Nvidia GPU:
+> [!NOTE]
+> Under `configuration`, it should say `driver=nvidia` if the Nvidia GPU driver installation was successful.
+```
+sudo lshw -c display
+```
+* After reboot, you can also use the following command to check if everything works correctly:
+```
+nvidia-smi
+```
+* After installing the Nvidia GPU drivers successfully, set up the repository for the Nvidia container toolkit to give the GPU the ability to transcode:
+```
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+      && curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+      && curl -s -L https://nvidia.github.io/libnvidia-container/$distribution/libnvidia-container.list | \
+            sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+            sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+```
+* Install Nvidia container toolkit:
+```
+sudo apt-get update
+sudo apt-get install -y nvidia-docker2
+sudo systemctl restart docker
+```
+-----
 # Install Plex Server
 * Enter Plex Server directory:
 ```
@@ -208,3 +256,10 @@ crontab -e
 Plex Server is now set up in a Docker container on your host machine.
 
 Go to the web UI for plex via a web browser under `https://app.plex.tv/desktop/` to finish setting up your Plex Server.
+
+-----
+# Enabling GPU Transcoding
+* After successful installation of your Plex Server, access it via the web UI.
+* Go to the `Transcoder` page under `Settings` and check the boxes next to `Use hardware acceleration when available` and `Use hardware-accelerated video encoding`.
+* For the `Hardware transcoding device` under the `Transcoder` settings page, you can select the correct GPU from the drop down menu or leave it on `Auto` if no GPUs are visible in the drop down menu.
+* To see if the Plex Server is using hardware transcode, start a video with a client device and under `Playback Settings`, select `Convert Automatically` or convert to whatever lower resolution than the original video quality, then go to the `Dashboard` page under `Settings`, and under `Now Playing`, you should see `(hw)` next to the word `Transcode` under the `Video` information for the stream.
