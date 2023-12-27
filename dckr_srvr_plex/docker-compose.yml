@@ -5,12 +5,17 @@ services:
     image: plexinc/pms-docker:public
     restart: unless-stopped
     network_mode: host
-    devices:
-      - /dev/dri:/dev/dri
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
     environment:
       - TZ=<time-zone>
       - PLEX_CLAIM=<claim-token>
       - ALLOWED_NETWORKS=<local-net/subnet>
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
     volumes:
       - /plexserver/config:/config
       - /nas/plexserverdatabase:/database
