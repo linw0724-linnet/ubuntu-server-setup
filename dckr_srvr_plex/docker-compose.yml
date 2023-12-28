@@ -23,5 +23,4 @@ services:
       - /nas/plexserverphysicalmedia:/physicalmedia
       - /nas/plexservertempmedia:/tempmedia     
       - /nas/plexservertranscode:/transcode
-      - /nas/plexserveroptimizedmedia:/optimized
 
