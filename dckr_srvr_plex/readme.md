@@ -34,8 +34,6 @@ sudo mkdir -p /opt/plexserver/config
 > `plexservertempmedia` folder is for storage of Plex Server library physical temporary media.
 >
 > `plexservertranscode` folder is for storage of Plex Server transcoding data.
->
-> `plexserveroptimizedmedia` folder is for storage of Plex Server optimized versions of media.
 
 > [!NOTE]
 > You can organize your storage directories to whatever topology you want as long as you enter the correct settings to match the topology through the Plex Server UI.
@@ -81,8 +79,6 @@ sudo nano /etc/fstab
 //<NAS-share-path> /nas/plexservertempmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 # Connect Plex transcode CIFS share to local Plex Server transcode directory
 //<NAS-share-path> /nas/plexservertranscode cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
-# Connect Plex optimized media CIFS share to local Plex Server optimized media directory
-//<NAS-share-path> /nas/plexserveroptimizedmedia cifs uid=plexserver,credentials=/opt/plexserver/.plexservercredentials,iocharset=utf8 0 0
 ```
 * Save file and exit text editor.
 * Mount CIFS shares:
@@ -119,15 +115,6 @@ cd
 * Check if Plex Server transcode CIFS shares are visible:
 ```
 cd /nas/plexservertranscode
-ls -a
-```
-* Return to root:
-```
-cd
-```
-* Check if Plex Server optimized media CIFS shares are visible:
-```
-cd /nas/plexserveroptimizedmedia
 ls -a
 ```
 * Return to root:
